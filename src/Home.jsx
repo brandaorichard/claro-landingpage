@@ -76,7 +76,9 @@ export default function Home() {
                 selecionado={cardMovelSelecionado === `controle-${index}`}
                 onClick={() =>
                   setCardMovelSelecionado(
-                    cardMovelSelecionado === `controle-${index}` ? null : `controle-${index}`
+                    cardMovelSelecionado === `controle-${index}`
+                      ? null
+                      : `controle-${index}`
                   )
                 }
               />
@@ -91,7 +93,9 @@ export default function Home() {
                 selecionado={cardMovelSelecionado === `pos-${index}`}
                 onClick={() =>
                   setCardMovelSelecionado(
-                    cardMovelSelecionado === `pos-${index}` ? null : `pos-${index}`
+                    cardMovelSelecionado === `pos-${index}`
+                      ? null
+                      : `pos-${index}`
                   )
                 }
               />
@@ -120,17 +124,118 @@ export default function Home() {
           >
             TENHA INTERNET ESTÁVEL, RÁPIDA E SEGURA PARA TODA A FAMÍLIA!
           </h3>
-          {/* Imagem de fundo com cards sobrepostos */}
+          {/* Imagem de fundo com blocos informativos sobrepostos */}
           <div className="relative w-full h-[350px] md:h-[400px] mb-8">
             <img
               src={clarofibra}
               alt="Claro fibra"
               className="w-full h-full object-cover rounded-xl"
             />
-            <div className="absolute inset-0 flex flex-col md:flex-row justify-center items-center gap-6 p-4">
-              {planosFibra.map((plano, index) => (
-                <PlanoCard plano={plano} key={index} fibra />
-              ))}
+            <div
+              className="
+        absolute inset-0 flex flex-row items-center justify-center gap-2
+        px-2 md:px-8
+      "
+              style={{
+                fontSize: "70%", // Reduz o tamanho em 30%
+              }}
+            >
+              {/* Primeiro plano */}
+              <div
+                className="flex flex-col items-center bg-black/50 rounded-lg p-2 md:p-4 mx-1 min-w-[140px] max-w-[160px]"
+                style={{ color: "#fff" }}
+              >
+                <div className="uppercase font-bold text-xs text-[#FFC557] mb-1 tracking-wide">
+                  {planosFibra[0].nome}
+                </div>
+                <div className="text-xl font-extrabold leading-tight mb-1">
+                  {planosFibra[0].total}
+                </div>
+                <div className="flex flex-col gap-0.5 mb-1">
+                  {planosFibra[0].detalhes.map((detalhe, idx) => (
+                    <span key={idx} className="text-xs text-gray-200">
+                      {detalhe}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {planosFibra[0].beneficios?.map((beneficio, idx) =>
+                    beneficio.icon ? (
+                      <span key={idx} title={beneficio.label}>
+                        <beneficio.icon
+                          size={14}
+                          color="#FFC557"
+                          className="inline"
+                        />
+                      </span>
+                    ) : beneficio.img ? (
+                      <span key={idx} title={beneficio.label}>
+                        <img
+                          src={beneficio.img}
+                          alt={beneficio.label}
+                          style={{
+                            width: 14,
+                            height: 14,
+                            verticalAlign: "middle",
+                          }}
+                        />
+                      </span>
+                    ) : (
+                      <span key={idx} className="font-bold ml-2">
+                        {beneficio.text}
+                      </span>
+                    )
+                  )}
+                </div>
+              </div>
+              {/* Segundo plano */}
+              <div
+                className="flex flex-col items-center bg-black/50 rounded-lg p-2 md:p-4 mx-1 min-w-[140px] max-w-[160px]"
+                style={{ color: "#fff" }}
+              >
+                <div className="uppercase font-bold text-xs text-[#FFC557] mb-1 tracking-wide">
+                  {planosFibra[1].nome}
+                </div>
+                <div className="text-xl font-extrabold leading-tight mb-1">
+                  {planosFibra[1].total}
+                </div>
+                <div className="flex flex-col gap-0.5 mb-1">
+                  {planosFibra[1].detalhes.map((detalhe, idx) => (
+                    <span key={idx} className="text-xs text-gray-200">
+                      {detalhe}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {planosFibra[1].beneficios?.map((beneficio, idx) =>
+                    beneficio.icon ? (
+                      <span key={idx} title={beneficio.label}>
+                        <beneficio.icon
+                          size={14}
+                          color="#FFC557"
+                          className="inline"
+                        />
+                      </span>
+                    ) : beneficio.img ? (
+                      <span key={idx} title={beneficio.label}>
+                        <img
+                          src={beneficio.img}
+                          alt={beneficio.label}
+                          style={{
+                            width: 14,
+                            height: 14,
+                            verticalAlign: "middle",
+                          }}
+                        />
+                      </span>
+                    ) : (
+                      <span key={idx} className="font-bold ml-2">
+                        {beneficio.text}
+                      </span>
+                    )
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </section>

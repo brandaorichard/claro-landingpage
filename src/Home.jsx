@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import { FaMobileScreenButton } from "react-icons/fa6";
 import { BsFillRouterFill } from "react-icons/bs";
 import { IoTvSharp } from "react-icons/io5";
+import clarotv from "./assets/clarotv.png";
 
 export default function Home() {
   return (
@@ -45,24 +46,16 @@ export default function Home() {
         </div>
       </div>
       <div className="text-black py-10 px-4 max-w-4xl mx-auto">
-        <h2
-          className="
-    text-2xl
-    md:text-4xl
-    font-extrabold
-    text-black
-    text-center
-    tracking-wider
-    mb-12
-    mt-8
-    drop-shadow-[0_2px_2px_rgba(0,0,0,0.25)]
-  "
+        <h3
+          className="text-black font-black uppercase tracking-tight text-2xl md:text-3xl mb-15 text-left"
+          style={{ lineHeight: 1, letterSpacing: "-2px" }}
         >
           Qual plano você possui?
-        </h2>
+        </h3>
 
         {/* Seção 1: Claro Móvel */}
         <section className="mb-16">
+          <p className="text-sm text-[#C10000] mb-2">Para seu celular</p>
           <SectionTitle
             align="left"
             icon={<FaMobileScreenButton size={28} className="text-[#A80000]" />}
@@ -85,6 +78,7 @@ export default function Home() {
 
         {/* Seção 2: Claro Fibra+ */}
         <section className="mb-16">
+          <p className="text-sm text-[#C10000] mb-2">Para sua casa</p>
           <SectionTitle
             align="left"
             icon={<BsFillRouterFill size={28} className="text-[#A80000]" />}
@@ -106,11 +100,29 @@ export default function Home() {
           >
             Claro TV+
           </SectionTitle>
-          <div className="flex flex-wrap gap-6 justify-center md:justify-start">
+          <h3
+            className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-left"
+            style={{ lineHeight: 1, letterSpacing: "-2px" }}
+          >
+            TUDO FICA AINDA MAIS COMPLETO COM A CLARO TV+
+          </h3>
+          <h3
+            className="text-black font-black uppercase tracking-tight text-3xl mb-8 md:text-2xl text-left"
+            style={{ lineHeight: 1, letterSpacing: "-2px" }}
+          >
+            ÚNICA TV DO MERCADO QUE UNE TUDO EM UM SÓ LUGAR!
+          </h3>
+          <img
+            src={clarotv}
+            alt="Claro TV+"
+            className="w-full h-auto rounded-xl shadow-md"
+            style={{ objectFit: "cover" }}
+          />
+          {/* <div className="flex flex-wrap gap-6 justify-center md:justify-start">
             {planosTv.map((plano, idx) => (
               <PlanoCard key={idx} plano={plano} />
             ))}
-          </div>
+          </div> */}
         </section>
       </div>
     </div>

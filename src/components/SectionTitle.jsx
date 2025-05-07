@@ -18,12 +18,12 @@ export default function SectionTitle({ children, icon, align = "center" }) {
               src={claroBlackLogo}
               alt="Claro"
               className="h-7 md:h-8 w-auto"
-              style={{ minWidth: 28, minHeight: 28 }}
+              style={{ display: "inline-block", verticalAlign: "middle" }}
             />
           ) : (
             <span
               key={idx}
-              className="text-lg md:text-xl font-bold text-black mt-2"
+              className="text-lg md:text-2xl font-bold text-red-800 mt-3"
               style={{ lineHeight: 1 }}
             >
               {part}

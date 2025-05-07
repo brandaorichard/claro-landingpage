@@ -26,18 +26,18 @@ export default function Header() {
         className="w-20 h-auto mb-4 md:mb-0 md:w-24 md:absolute md:left-6 md:top-6 md:block"
       />
 
-      <h1 className="text-lg md:text-2xl font-extrabold tracking-widest text-center mb-6 mt-2 md:mt-0">
+      <h1 className="text-lg md:text-2xl font-extrabold tracking-tight text-center mb-6 mt-2 md:mt-0" style={{ lineHeight: 1, letterSpacing: "-1px" }}>
         CLIENTE CLARO TEM MAIS VANTAGENS!
       </h1>
-      <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-6">
+      <div className="flex flex-col tracking-tight md:flex-row justify-center items-center gap-8 mb-6">
         {checks.map((texto, idx) => (
-          <div className="flex items-center gap-2" key={idx}>
+          <div className="flex items-center gap-2" key={idx} style={{ letterSpacing: "-1px" }}>
             <FaCheckCircle className="text-green-400" size={28} />
             <span className="font-semibold text-lg text-center">{texto}</span>
           </div>
         ))}
       </div>
-      <div className="text-center text-white text-xl md:text-2xl font-bold leading-tight">
+      <div className="text-center text-white text-xl tracking-tight md:text-2xl font-bold leading-tight" style={{ letterSpacing: "-1px" }}>
         {textoImagem}
       </div>
     </header>

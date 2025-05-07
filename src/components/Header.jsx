@@ -1,6 +1,6 @@
 // src/components/Header.jsx
-import { FaCheckCircle } from "react-icons/fa";
 import claroLogo from "../assets/claro.svg";
+import { FaCheckCircle } from "react-icons/fa";
 
 const checks = [
   "Exclusivo para quem já é da Claro",
@@ -8,7 +8,6 @@ const checks = [
   "Atendimento especial e consultoria personalizada",
 ];
 
-// Texto da imagem, com quebras de linha para responsividade
 const textoImagem = (
   <>
     <span className="block">Planos móveis, banda larga e TV</span>
@@ -19,16 +18,15 @@ const textoImagem = (
 
 export default function Header() {
   return (
-    <header className="w-full bg-gradient-to-b from-[#7e0000] via-[#c10000] to-[#ff1a1a] text-white py-10 px-4 flex flex-col items-center">
-      {/* Logo Claro no canto superior esquerdo */}
+    <header className="w-full bg-gradient-to-b from-[#7e0000] via-[#c10000] to-[#ff1a1a] text-white py-10 px-4 flex flex-col items-center relative">
+      {/* Logo Claro: centralizado no mobile, absoluto à esquerda no md+ */}
       <img
         src={claroLogo}
         alt="Claro"
-        className="absolute left-6 top-6 w-24 h-auto md:w-32"
-        style={{ minWidth: 64 }}
+        className="w-20 h-auto mb-4 md:mb-0 md:w-24 md:absolute md:left-6 md:top-6 md:block"
       />
 
-      <h1 className="text-lg md:text-2xl font-extrabold tracking-widest text-center mb-6">
+      <h1 className="text-lg md:text-2xl font-extrabold tracking-widest text-center mb-6 mt-2 md:mt-0">
         CLIENTE CLARO TEM MAIS VANTAGENS!
       </h1>
       <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-6">

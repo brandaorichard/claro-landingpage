@@ -1,5 +1,5 @@
 // src/pages/Home.jsx
-import { planos, planosPos } from "./data/planosClaro";
+import { planos, planosPos, planosFibra, planosTv } from "./data/planosClaro";
 import PlanoCard from "./components/PlanoCard";
 import SectionTitle from "./components/SectionTitle";
 import Header from "./components/Header";
@@ -69,17 +69,13 @@ export default function Home() {
           >
             Claro Móvel
           </SectionTitle>
-          <h3 className="text-xl md:text-2xl font-bold mb-4 text-left">
-            Claro Controle:
-          </h3>
+          <h3 className="font-bold mb-4 text-left">Claro Controle:</h3>
           <div className="flex flex-wrap gap-6 mb-10">
             {planos.map((plano, index) => (
               <PlanoCard plano={plano} key={index} />
             ))}
           </div>
-          <h3 className="text-xl md:text-2xl font-bold mb-4 text-left">
-            Claro Pós:
-          </h3>
+          <h3 className="font-bold mb-4 text-left">Claro Pós:</h3>
           <div className="flex flex-wrap gap-6">
             {planosPos.map((plano, index) => (
               <PlanoCard plano={plano} key={index} />
@@ -96,20 +92,24 @@ export default function Home() {
             Claro Fibra+
           </SectionTitle>
           <div className="flex flex-wrap gap-6">
-            {/* Cards da Fibra+ vão aqui */}
+            {planosFibra.map((plano, index) => (
+              <PlanoCard plano={plano} key={index} />
+            ))}
           </div>
         </section>
 
         {/* Seção 3: Claro TV+ */}
-        <section>
+        <section className="mb-16">
           <SectionTitle
             align="left"
             icon={<IoTvSharp size={28} className="text-[#A80000]" />}
           >
             Claro TV+
           </SectionTitle>
-          <div className="flex flex-wrap gap-6">
-            {/* Cards da TV+ vão aqui */}
+          <div className="flex flex-wrap gap-6 justify-center md:justify-start">
+            {planosTv.map((plano, idx) => (
+              <PlanoCard key={idx} plano={plano} />
+            ))}
           </div>
         </section>
       </div>

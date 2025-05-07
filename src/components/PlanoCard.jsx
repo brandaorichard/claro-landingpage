@@ -1,6 +1,6 @@
 // src/components/PlanoCard.jsx
+import React from "react";
 import { motion } from "framer-motion";
-import { FaInstagram, FaFacebook, FaXTwitter, FaTiktok, FaYoutube, FaPlus} from "react-icons/fa6";
 
 function formatPreco(preco) {
   const match = preco.match(/(R\$)?\s?(\d+),(\d+)(.*)/);
@@ -13,7 +13,7 @@ function formatPreco(preco) {
   };
 }
 
-export default function PlanoCard({ plano, index }) {
+const PlanoCard = React.memo(function PlanoCard({ plano }) {
   const { moeda, valor, centavos, sufixo } = formatPreco(plano.preco);
 
   return (
@@ -70,19 +70,43 @@ export default function PlanoCard({ plano, index }) {
       {/* Divisor com "+" */}
       <div className="flex items-center justify-center my-3">
         <div className="flex-1 border-t border-[#A80000]"></div>
-        <FaPlus className="mx-2 text-[#A80000]" size={18} />
+        <span className="mx-2 text-[#A80000] font-bold text-lg">+</span>
         <div className="flex-1 border-t border-[#A80000]"></div>
       </div>
 
+      {/* Benefícios */}
       <div className="text-xs font-semibold mb-2">Benefícios:</div>
       <div className="flex items-center gap-2 flex-wrap">
-        <FaInstagram size={12} />
-        <FaFacebook size={12} />
-        <FaXTwitter size={12} />
-        <FaTiktok size={12} />
-        <FaYoutube size={12} />
-        <span className="font-bold ml-2">5GB</span>
+        {plano.beneficios?.map((beneficio, idx) =>
+          beneficio.icon ? (
+            <span key={idx} title={beneficio.label}>
+              <beneficio.icon
+                size={16}
+                color={beneficio.color || "#000"}
+                className="inline"
+              />
+            </span>
+          ) : beneficio.img ? (
+            <span key={idx} title={beneficio.label}>
+              <img
+                src={beneficio.img}
+                alt={beneficio.label}
+                style={
+                  beneficio.label === "wifi"
+                    ? { width: 25, height: 16, verticalAlign: "middle" } // 16 * 1.2 = 19.2
+                    : { width: 16, height: 16, verticalAlign: "middle" }
+                }
+              />
+            </span>
+          ) : (
+            <span key={idx} className="font-bold ml-2">
+              {beneficio.text}
+            </span>
+          )
+        )}
       </div>
     </motion.div>
   );
-}
+});
+
+export default PlanoCard;

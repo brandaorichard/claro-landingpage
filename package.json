@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mdi/js": "^7.4.47",
+    "@mdi/react": "^1.6.1",
     "@tailwindcss/vite": "^4.1.4",
     "framer-motion": "^12.9.2",
     "react": "^19.0.0",

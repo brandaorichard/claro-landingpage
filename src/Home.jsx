@@ -1,5 +1,6 @@
 // src/pages/Home.jsx
-import { planos, planosPos, planosFibra, planosTv } from "./data/planosClaro";
+import React, { useState } from "react";
+import { planos, planosPos, planosFibra } from "./data/planosClaro";
 import PlanoCard from "./components/PlanoCard";
 import SectionTitle from "./components/SectionTitle";
 import Header from "./components/Header";
@@ -7,8 +8,12 @@ import { FaMobileScreenButton } from "react-icons/fa6";
 import { BsFillRouterFill } from "react-icons/bs";
 import { IoTvSharp } from "react-icons/io5";
 import clarotv from "./assets/clarotv.png";
+import clarofibra from "./assets/clarofibra.png";
 
 export default function Home() {
+  // Estado para seleção dos cards móveis
+  const [cardMovelSelecionado, setCardMovelSelecionado] = useState(null);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-gray-100 to-white">
       <Header />
@@ -62,16 +67,34 @@ export default function Home() {
           >
             Claro Móvel
           </SectionTitle>
-          <h3 className="font-bold mb-4 text-left">Claro Controle:</h3>
+          <h3 className="font-bold mb-4 text-left text-lg">Claro Controle:</h3>
           <div className="flex flex-wrap gap-6 mb-10">
             {planos.map((plano, index) => (
-              <PlanoCard plano={plano} key={index} />
+              <PlanoCard
+                plano={plano}
+                key={index}
+                selecionado={cardMovelSelecionado === `controle-${index}`}
+                onClick={() =>
+                  setCardMovelSelecionado(
+                    cardMovelSelecionado === `controle-${index}` ? null : `controle-${index}`
+                  )
+                }
+              />
             ))}
           </div>
-          <h3 className="font-bold mb-4 text-left">Claro Pós:</h3>
+          <h3 className="font-bold mb-4 text-left text-lg">Claro Pós:</h3>
           <div className="flex flex-wrap gap-6">
             {planosPos.map((plano, index) => (
-              <PlanoCard plano={plano} key={index} />
+              <PlanoCard
+                plano={plano}
+                key={index}
+                selecionado={cardMovelSelecionado === `pos-${index}`}
+                onClick={() =>
+                  setCardMovelSelecionado(
+                    cardMovelSelecionado === `pos-${index}` ? null : `pos-${index}`
+                  )
+                }
+              />
             ))}
           </div>
         </section>
@@ -85,10 +108,30 @@ export default function Home() {
           >
             Claro Fibra+
           </SectionTitle>
-          <div className="flex flex-wrap gap-6">
-            {planosFibra.map((plano, index) => (
-              <PlanoCard plano={plano} key={index} />
-            ))}
+          <h3
+            className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-left"
+            style={{ lineHeight: 1, letterSpacing: "-2px" }}
+          >
+            NAVEGUE COM A ULTRAVELCIDADE DA CLARO FIBRA+
+          </h3>
+          <h3
+            className="text-black font-black uppercase tracking-tight text-3xl mb-8 md:text-2xl text-left"
+            style={{ lineHeight: 1, letterSpacing: "-2px" }}
+          >
+            TENHA INTERNET ESTÁVEL, RÁPIDA E SEGURA PARA TODA A FAMÍLIA!
+          </h3>
+          {/* Imagem de fundo com cards sobrepostos */}
+          <div className="relative w-full h-[350px] md:h-[400px] mb-8">
+            <img
+              src={clarofibra}
+              alt="Claro fibra"
+              className="w-full h-full object-cover rounded-xl"
+            />
+            <div className="absolute inset-0 flex flex-col md:flex-row justify-center items-center gap-6 p-4">
+              {planosFibra.map((plano, index) => (
+                <PlanoCard plano={plano} key={index} fibra />
+              ))}
+            </div>
           </div>
         </section>
 
@@ -118,11 +161,6 @@ export default function Home() {
             className="w-full h-auto rounded-xl shadow-md"
             style={{ objectFit: "cover" }}
           />
-          {/* <div className="flex flex-wrap gap-6 justify-center md:justify-start">
-            {planosTv.map((plano, idx) => (
-              <PlanoCard key={idx} plano={plano} />
-            ))}
-          </div> */}
         </section>
       </div>
     </div>

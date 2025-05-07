@@ -1,6 +1,6 @@
 // src/components/PlanoCard.jsx
-import { FaInstagram, FaFacebook, FaXTwitter, FaTiktok, FaYoutube, FaPlus } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import { FaInstagram, FaFacebook, FaXTwitter, FaTiktok, FaYoutube, FaPlus} from "react-icons/fa6";
 
 function formatPreco(preco) {
   const match = preco.match(/(R\$)?\s?(\d+),(\d+)(.*)/);
@@ -13,12 +13,12 @@ function formatPreco(preco) {
   };
 }
 
-export default function PlanoCard({ plano }) {
+export default function PlanoCard({ plano, index }) {
   const { moeda, valor, centavos, sufixo } = formatPreco(plano.preco);
 
   return (
     <motion.div
-      className="bg-white border border-black rounded-xl p-6 text-black w-full max-w-[260px] transition-all"
+      className="bg-white border border-black rounded-xl p-4 text-black w-full max-w-[195px] transition-all"
       whileHover={{
         scale: 1.05,
         boxShadow: "0 8px 32px 0 rgba(168,0,0,0.18)",
@@ -28,16 +28,16 @@ export default function PlanoCard({ plano }) {
       transition={{ type: "spring", stiffness: 500, damping: 12 }}
     >
       {/* Primeira parte do card */}
-      <div className="mb-4">
-        <div className="uppercase font-bold text-sm text-[#A80000] mb-1 tracking-wide">
+      <div className="mb-3">
+        <div className="uppercase font-bold text-xs text-[#A80000] mb-1 tracking-wide">
           {plano.nome}
         </div>
-        <div className="text-5xl font-extrabold text-black leading-tight mb-1">
+        <div className="text-3xl font-extrabold text-black leading-tight mb-1">
           {plano.total}
         </div>
         <div className="flex flex-col gap-0.5">
           {plano.detalhes.map((detalhe, idx) => (
-            <span key={idx} className="text-sm text-gray-700">
+            <span key={idx} className="text-xs text-gray-700">
               {detalhe}
             </span>
           ))}
@@ -45,16 +45,16 @@ export default function PlanoCard({ plano }) {
       </div>
 
       {/* Valor estilizado */}
-      <div className="flex items-end justify-center mb-4">
-        <span className="text-base font-normal mr-1">{moeda}</span>
-        <span className="text-5xl font-extrabold leading-none">{valor}</span>
-        <span className="text-sm font-bold align-super ml-0.5">{centavos}</span>
-        <span className="text-base font-normal ml-1">{sufixo}</span>
+      <div className="flex items-end justify-center mb-3">
+        <span className="text-xs font-normal mr-1">{moeda}</span>
+        <span className="text-3xl font-extrabold leading-none">{valor}</span>
+        <span className="text-xs font-bold align-super ml-0.5">{centavos}</span>
+        <span className="text-xs font-normal ml-1">{sufixo}</span>
       </div>
 
       {/* Botão estilizado com hover Framer Motion */}
       <motion.button
-        className="w-full bg-[#FFC557] text-black font-bold text-lg rounded-full py-2 mb-4 transition-colors cursor-pointer"
+        className="w-full bg-[#FFC557] text-black font-bold text-base rounded-full py-1.5 mb-3 transition-colors cursor-pointer"
         whileHover={{
           backgroundColor: "#FFD700",
           color: "#A80000",
@@ -68,19 +68,19 @@ export default function PlanoCard({ plano }) {
       </motion.button>
 
       {/* Divisor com "+" */}
-      <div className="flex items-center justify-center my-4">
+      <div className="flex items-center justify-center my-3">
         <div className="flex-1 border-t border-[#A80000]"></div>
-        <FaPlus className="mx-3 text-[#A80000]" size={22} />
+        <FaPlus className="mx-2 text-[#A80000]" size={18} />
         <div className="flex-1 border-t border-[#A80000]"></div>
       </div>
 
       <div className="text-xs font-semibold mb-2">Benefícios:</div>
       <div className="flex items-center gap-2 flex-wrap">
-        <FaInstagram size={16} />
-        <FaFacebook size={16} />
-        <FaXTwitter size={16} />
-        <FaTiktok size={16} />
-        <FaYoutube size={16} />
+        <FaInstagram size={12} />
+        <FaFacebook size={12} />
+        <FaXTwitter size={12} />
+        <FaTiktok size={12} />
+        <FaYoutube size={12} />
         <span className="font-bold ml-2">5GB</span>
       </div>
     </motion.div>

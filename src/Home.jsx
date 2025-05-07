@@ -3,6 +3,9 @@ import { planos, planosPos } from "./data/planosClaro";
 import PlanoCard from "./components/PlanoCard";
 import SectionTitle from "./components/SectionTitle";
 import Header from "./components/Header";
+import { FaMobileScreenButton } from "react-icons/fa6";
+import { BsFillRouterFill } from "react-icons/bs";
+import { IoTvSharp } from "react-icons/io5";
 
 export default function Home() {
   return (
@@ -33,20 +36,39 @@ export default function Home() {
         </span>
         {/* Texto */}
         <div>
-          <div className="text-sm text-black">Ofertas disponíveis para Claro Paranaíba em:</div>
+          <div className="text-sm text-black">
+            Ofertas disponíveis para Claro Paranaíba em:
+          </div>
           <div className="text-lg font-bold text-black leading-tight">
             Três Lagoas - MS
           </div>
         </div>
       </div>
       <div className="text-black py-10 px-4 max-w-4xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-semibold mb-16 text-center">
+        <h2
+          className="
+    text-2xl
+    md:text-4xl
+    font-extrabold
+    text-black
+    text-center
+    tracking-wider
+    mb-12
+    mt-8
+    drop-shadow-[0_2px_2px_rgba(0,0,0,0.25)]
+  "
+        >
           Qual plano você possui?
         </h2>
 
         {/* Seção 1: Claro Móvel */}
         <section className="mb-16">
-          <SectionTitle align="left">Claro Móvel</SectionTitle>
+          <SectionTitle
+            align="left"
+            icon={<FaMobileScreenButton size={28} className="text-[#A80000]" />}
+          >
+            Claro Móvel
+          </SectionTitle>
           <h3 className="text-xl md:text-2xl font-bold mb-4 text-left">
             Claro Controle:
           </h3>
@@ -67,7 +89,12 @@ export default function Home() {
 
         {/* Seção 2: Claro Fibra+ */}
         <section className="mb-16">
-          <SectionTitle align="left">Claro Fibra+</SectionTitle>
+          <SectionTitle
+            align="left"
+            icon={<BsFillRouterFill size={28} className="text-[#A80000]" />}
+          >
+            Claro Fibra+
+          </SectionTitle>
           <div className="flex flex-wrap gap-6">
             {/* Cards da Fibra+ vão aqui */}
           </div>
@@ -75,7 +102,12 @@ export default function Home() {
 
         {/* Seção 3: Claro TV+ */}
         <section>
-          <SectionTitle align="left">Claro TV+</SectionTitle>
+          <SectionTitle
+            align="left"
+            icon={<IoTvSharp size={28} className="text-[#A80000]" />}
+          >
+            Claro TV+
+          </SectionTitle>
           <div className="flex flex-wrap gap-6">
             {/* Cards da TV+ vão aqui */}
           </div>

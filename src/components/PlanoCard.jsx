@@ -37,7 +37,7 @@ const PlanoCard = React.memo(function PlanoCard({
         fibra
           ? "bg-black/40 backdrop-blur-sm"
           : "bg-white"
-      } ${borderClass} rounded-xl p-4 w-full max-w-[195px] transition-all ${textColor}`}
+      } ${borderClass} rounded-xl p-4 w-full max-w-[140px] sm:max-w-[160px] md:max-w-[180px] transition-all ${textColor}`}
       whileHover={{
         scale: 1.05,
         boxShadow: "0 8px 32px 0 rgba(168,0,0,0.18)",

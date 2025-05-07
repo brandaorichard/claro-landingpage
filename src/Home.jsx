@@ -68,7 +68,7 @@ export default function Home() {
             Claro Móvel
           </SectionTitle>
           <h3 className="font-bold mb-4 text-left text-lg">Claro Controle:</h3>
-          <div className="flex flex-wrap gap-6 mb-10">
+          <div className="flex flex-wrap gap-3 mb-10">
             {planos.map((plano, index) => (
               <PlanoCard
                 plano={plano}
@@ -85,7 +85,7 @@ export default function Home() {
             ))}
           </div>
           <h3 className="font-bold mb-4 text-left text-lg">Claro Pós:</h3>
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap gap-3">
             {planosPos.map((plano, index) => (
               <PlanoCard
                 plano={plano}

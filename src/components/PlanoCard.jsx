@@ -1,5 +1,6 @@
 // src/components/PlanoCard.jsx
 import { FaInstagram, FaFacebook, FaXTwitter, FaTiktok, FaYoutube, FaPlus } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 function formatPreco(preco) {
   const match = preco.match(/(R\$)?\s?(\d+),(\d+)(.*)/);
@@ -16,7 +17,16 @@ export default function PlanoCard({ plano }) {
   const { moeda, valor, centavos, sufixo } = formatPreco(plano.preco);
 
   return (
-    <div className="bg-white border border-black rounded-xl p-6 text-black w-full max-w-[260px]">
+    <motion.div
+      className="bg-white border border-black rounded-xl p-6 text-black w-full max-w-[260px] transition-all"
+      whileHover={{
+        scale: 1.05,
+        boxShadow: "0 8px 32px 0 rgba(168,0,0,0.18)",
+        y: -8,
+        borderColor: "#A80000",
+      }}
+      transition={{ type: "spring", stiffness: 500, damping: 12 }}
+    >
       {/* Primeira parte do card */}
       <div className="mb-4">
         <div className="uppercase font-bold text-sm text-[#A80000] mb-1 tracking-wide">
@@ -42,13 +52,20 @@ export default function PlanoCard({ plano }) {
         <span className="text-base font-normal ml-1">{sufixo}</span>
       </div>
 
-      {/* Botão estilizado */}
-      <button
-        className="w-full bg-[#FFC557] hover:bg-yellow-400 text-black font-bold text-lg rounded-full py-2 mb-4 transition-colors"
+      {/* Botão estilizado com hover Framer Motion */}
+      <motion.button
+        className="w-full bg-[#FFC557] text-black font-bold text-lg rounded-full py-2 mb-4 transition-colors cursor-pointer"
+        whileHover={{
+          backgroundColor: "#FFD700",
+          color: "#A80000",
+          scale: 1.04,
+          boxShadow: "0 4px 16px 0 rgba(168,0,0,0.10)",
+        }}
+        transition={{ type: "spring", stiffness: 400, damping: 10 }}
         type="button"
       >
         Quero este!
-      </button>
+      </motion.button>
 
       {/* Divisor com "+" */}
       <div className="flex items-center justify-center my-4">
@@ -66,6 +83,6 @@ export default function PlanoCard({ plano }) {
         <FaYoutube size={16} />
         <span className="font-bold ml-2">5GB</span>
       </div>
-    </div>
+    </motion.div>
   );
 }

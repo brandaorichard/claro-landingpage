@@ -9,6 +9,16 @@ import { BsFillRouterFill } from "react-icons/bs";
 import { IoTvSharp } from "react-icons/io5";
 import clarotv from "./assets/clarotv.png";
 import clarofibra from "./assets/clarofibra.png";
+import netflixWhite from "./assets/netflixwhite.svg";
+import maxWhite from "./assets/maxwhite.svg";
+import disneyWhite from "./assets/disneywhite.svg";
+import gpWhite from "./assets/gpwhite.svg";
+import primeWhite from "./assets/primewhite.svg";
+import telecine from "./assets/telecine.svg";
+import starWhite from "./assets/starwhite.svg";
+import dcWhite from "./assets/dcwhite.png";
+import claro from "./assets/claro.svg";
+import netflixred from "./assets/netflixred.svg";
 
 export default function Home() {
   // Estado para seleção dos cards móveis
@@ -50,7 +60,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="text-black py-10 px-4 max-w-4xl mx-auto">
+      <div className="text-black py-10 px-4 max-w-6xl mx-auto">
         <h3
           className="text-black font-black uppercase tracking-tight text-2xl md:text-3xl mb-15 text-left"
           style={{ lineHeight: 1, letterSpacing: "-2px" }}
@@ -113,13 +123,13 @@ export default function Home() {
             Claro Fibra+
           </SectionTitle>
           <h3
-            className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-left"
-            style={{ lineHeight: 1, letterSpacing: "-2px" }}
+            className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-center mt-15"
+            style={{ lineHeight: 1, letterSpacing: "-1px" }}
           >
             NAVEGUE COM A ULTRAVELCIDADE DA CLARO FIBRA+
           </h3>
           <h3
-            className="text-black font-black uppercase tracking-tight text-3xl mb-8 md:text-2xl text-left"
+            className="text-black font-black uppercase tracking-tight text-3xl mb-8 md:text-2xl text-center"
             style={{ lineHeight: 1, letterSpacing: "-2px" }}
           >
             TENHA INTERNET ESTÁVEL, RÁPIDA E SEGURA PARA TODA A FAMÍLIA!
@@ -248,24 +258,220 @@ export default function Home() {
           >
             Claro TV+
           </SectionTitle>
-          <h3
-            className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-left"
-            style={{ lineHeight: 1, letterSpacing: "-2px" }}
-          >
-            TUDO FICA AINDA MAIS COMPLETO COM A CLARO TV+
-          </h3>
-          <h3
-            className="text-black font-black uppercase tracking-tight text-3xl mb-8 md:text-2xl text-left"
-            style={{ lineHeight: 1, letterSpacing: "-2px" }}
-          >
-            ÚNICA TV DO MERCADO QUE UNE TUDO EM UM SÓ LUGAR!
-          </h3>
-          <img
-            src={clarotv}
-            alt="Claro TV+"
-            className="w-full h-auto rounded-xl shadow-md"
-            style={{ objectFit: "cover" }}
-          />
+          <section className="mb-16">
+            <h3
+              className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-center mb-8 mt-15"
+              style={{ lineHeight: 1, letterSpacing: "-1px" }}
+            >
+              Transforme sua TV numa Smart TV com muito mais mobilidade
+            </h3>
+            {/* <h3
+              className="text-black font-black uppercase tracking-tight text-3xl mb-8 md:text-2xl text-left"
+              style={{ lineHeight: 1, letterSpacing: "-2px" }}
+            >
+              ÚNICA TV DO MERCADO QUE UNE TUDO EM UM SÓ LUGAR!
+            </h3> */}
+
+            {/* Cards coloridos ocupando todo o container, responsivos */}
+            <div className="flex flex-col sm:flex-row w-full gap-4 mb-8">
+              {/* Card 1 */}
+              <div
+                className="flex-1 min-w-[220px] max-w-[400px] w-full rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden mb-4 sm:mb-0"
+                style={{
+                  background: `linear-gradient(to bottom, #A80000 20%, #000 100%)`,
+                }}
+              >
+                {/* Logos como background decorativo */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0">
+                  <div className="flex flex-col gap-4 w-full items-center justify-center -mt-10">
+                    <div className="flex flex-row gap-8 justify-center w-full">
+                      <img
+                        src={netflixWhite}
+                        alt="Netflix"
+                        className="h-12 w-auto opacity-65"
+                        style={{ maxWidth: 80 }}
+                      />
+                      <img
+                        src={maxWhite}
+                        alt="Max"
+                        className="h-12 w-auto opacity-65"
+                        style={{ maxWidth: 80 }}
+                      />
+                    </div>
+                    <div className="flex flex-row gap-8 justify-center w-full">
+                      <img
+                        src={disneyWhite}
+                        alt="Disney"
+                        className="h-12 w-auto opacity-65"
+                        style={{ maxWidth: 80 }}
+                      />
+                      <img
+                        src={gpWhite}
+                        alt="Globoplay"
+                        className="h-12 w-auto opacity-65"
+                        style={{ maxWidth: 80 }}
+                      />
+                    </div>
+                    <div className="flex flex-row gap-8 justify-center w-full">
+                      <img
+                        src={primeWhite}
+                        alt="Prime Video"
+                        className="h-12 w-auto opacity-65"
+                        style={{ maxWidth: 80 }}
+                      />
+                      <img
+                        src={telecine}
+                        alt="Telecine"
+                        className="h-12 w-auto opacity-65"
+                        style={{ maxWidth: 80 }}
+                      />
+                    </div>
+                    <div className="flex flex-row gap-8 justify-center w-full">
+                      <img
+                        src={starWhite}
+                        alt="star"
+                        className="h-12 w-auto opacity-30"
+                        style={{ maxWidth: 95 }}
+                      />
+                      <img
+                        src={dcWhite}
+                        alt="discovery"
+                        className="h-12 w-auto opacity-30"
+                        style={{
+                          maxWidth: 95,
+                          filter: "brightness(0) invert(1)",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/* Conteúdo do card na frente */}
+                <div className="relative z-10 w-full mb-4">
+                  <span
+                    className="block font-bold text-lg text-left drop-shadow-md mb-2"
+                    style={{ color: "#fff" }}
+                  >
+                    Apps de streaming integrados
+                  </span>
+                  <p
+                    className="text-sm font-normal text-left max-w-[90%] drop-shadow-md"
+                    style={{ color: "#fff" }}
+                  >
+                    Seus apps de streaming favoritos já estão integrados no seu
+                    ClaroTV+
+                  </p>
+                </div>
+              </div>
+              {/* Card 2 */}
+              {/* Card 2 */}
+              <div
+                className="flex-1 min-w-[220px] max-w-[400px] w-full rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden mb-4 sm:mb-0"
+                style={{ background: "#1A1A1A" }}
+              >
+                {/* Logos e "com" centralizados como background decorativo */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0">
+                  <div className="flex flex-col items-center justify-center w-full -mt-34">
+                    <div className="flex items-center justify-center">
+                      <img
+                        src={claro}
+                        alt="Claro"
+                        className="w-[104px] h-auto"
+                        style={{ maxWidth: 120 }}
+                      />
+                      <span
+                        className="ml-2 text-2xl font-bold text-[#fff] drop-shadow-md mt-4"
+                        style={{ letterSpacing: "1px" }}
+                      >
+                        TV+
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-center mt-0">
+                      <span
+                        className="block font-bold text-lg text-center drop-shadow-md -mt-2"
+                        style={{ color: "#fff" }}
+                      >
+                        com
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-center -mt-10">
+                      <img
+                        src={netflixred}
+                        alt="netflixred"
+                        className="w-[180px] h-auto"
+                        style={{ maxWidth: 180 }}
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/* Conteúdo do card na frente, alinhado à esquerda e abaixo */}
+                <div className="relative z-10 w-full mb-4">
+                  <span
+                    className="block font-bold text-lg text-left drop-shadow-md"
+                    style={{ color: "#fff" }}
+                  >
+                    Netflix em todos os pacotes
+                  </span>
+                  <p
+                    className="text-sm font-normal text-left max-w-[90%] drop-shadow-md mt-2"
+                    style={{ color: "#fff" }}
+                  >
+                    Tenha os melhores filmes e séries para ver onde e quando
+                    quiser
+                  </p>
+                </div>
+              </div>
+              {/* Card 3 */}
+              <div
+                className="flex-1 min-w-[220px] max-w-[400px] w-full rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden mb-4 sm:mb-0"
+                style={{
+                  background: `linear-gradient(to bottom, #A80000 60%, #000 100%)`,
+                }}
+              >
+                <div className="relative z-10 w-full mb-4">
+                  <span
+                    className="block font-bold text-lg text-left"
+                    style={{ color: "#fff" }}
+                  >
+                    Card 3
+                  </span>
+                  <p
+                    className="text-sm font-normal text-left max-w-[90%]"
+                    style={{ color: "#fff" }}
+                  >
+                    Descrição do Card 3
+                  </p>
+                </div>
+              </div>
+              {/* Card 4 */}
+              <div
+                className="flex-1 min-w-[220px] max-w-[400px] w-full rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden"
+                style={{
+                  background: `linear-gradient(to bottom, #d1001f 60%, #000 100%)`,
+                }}
+              >
+                <div className="relative z-10 w-full mb-4">
+                  <span
+                    className="block font-bold text-lg text-left"
+                    style={{ color: "#fff" }}
+                  >
+                    Card 4
+                  </span>
+                  <p
+                    className="text-sm font-normal text-left max-w-[90%]"
+                    style={{ color: "#fff" }}
+                  >
+                    Descrição do Card 4
+                  </p>
+                </div>
+              </div>
+            </div>
+            <img
+              src={clarotv}
+              alt="Claro TV+"
+              className="w-full h-auto rounded-xl shadow-md mb-6"
+              style={{ objectFit: "cover" }}
+            />
+          </section>
         </section>
       </div>
     </div>

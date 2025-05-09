@@ -276,7 +276,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row w-full gap-4 mb-8">
               {/* Card 1 */}
               <div
-                className="flex-1 min-w-[220px] max-w-[400px] w-full rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden mb-4 sm:mb-0"
+                className="w-full sm:flex-1 sm:min-w-[220px] sm:max-w-[400px] rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden mb-4 sm:mb-0"
                 style={{
                   background: `linear-gradient(to bottom, #A80000 20%, #000 100%)`,
                 }}
@@ -363,9 +363,8 @@ export default function Home() {
                 </div>
               </div>
               {/* Card 2 */}
-              {/* Card 2 */}
               <div
-                className="flex-1 min-w-[220px] max-w-[400px] w-full rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden mb-4 sm:mb-0"
+                className="w-full sm:flex-1 sm:min-w-[220px] sm:max-w-[400px] rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden mb-4 sm:mb-0"
                 style={{ background: "#1A1A1A" }}
               >
                 {/* Logos e "com" centralizados como background decorativo */}
@@ -422,7 +421,7 @@ export default function Home() {
               </div>
               {/* Card 3 */}
               <div
-                className="flex-1 min-w-[220px] max-w-[400px] w-full rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden mb-4 sm:mb-0"
+                className="w-full sm:flex-1 sm:min-w-[220px] sm:max-w-[400px] rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden mb-4 sm:mb-0"
                 style={{
                   background: `linear-gradient(to bottom, #A80000 60%, #000 100%)`,
                 }}
@@ -444,7 +443,7 @@ export default function Home() {
               </div>
               {/* Card 4 */}
               <div
-                className="flex-1 min-w-[220px] max-w-[400px] w-full rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden"
+                className="w-full sm:flex-1 sm:min-w-[220px] sm:max-w-[400px] rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden"
                 style={{
                   background: `linear-gradient(to bottom, #d1001f 60%, #000 100%)`,
                 }}

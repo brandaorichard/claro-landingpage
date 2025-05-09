@@ -19,6 +19,10 @@ import starWhite from "./assets/starwhite.svg";
 import dcWhite from "./assets/dcwhite.png";
 import claro from "./assets/claro.svg";
 import netflixred from "./assets/netflixred.svg";
+import globoplaywhite from "./assets/globoplaywhite.png";
+import tvbox1 from "./assets/tvbox1.png";
+import tvbox2 from "./assets/tvbox2.png";
+import tvbox4k from "./assets/tvbox4k.png";
 
 export default function Home() {
   // Estado para seleção dos cards móveis
@@ -70,10 +74,10 @@ export default function Home() {
 
         {/* Seção 1: Claro Móvel */}
         <section className="mb-16">
-          <p className="text-sm text-[#C10000] mb-2">Para seu celular</p>
+          <p className="text-sm text-[#f00000] mb-2">Para seu celular</p>
           <SectionTitle
             align="left"
-            icon={<FaMobileScreenButton size={28} className="text-[#A80000]" />}
+            icon={<FaMobileScreenButton size={28} className="text-[#f00000]" />}
           >
             Claro Móvel
           </SectionTitle>
@@ -115,21 +119,21 @@ export default function Home() {
 
         {/* Seção 2: Claro Fibra+ */}
         <section className="mb-16">
-          <p className="text-sm text-[#C10000] mb-2">Para sua casa</p>
+          <p className="text-sm text-[#f00000] mb-2">Para sua casa</p>
           <SectionTitle
             align="left"
-            icon={<BsFillRouterFill size={28} className="text-[#A80000]" />}
+            icon={<BsFillRouterFill size={28} className="text-[#f00000]" />}
           >
             Claro Fibra+
           </SectionTitle>
           <h3
-            className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-center mt-15"
+            className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-left mt-15"
             style={{ lineHeight: 1, letterSpacing: "-1px" }}
           >
             NAVEGUE COM A ULTRAVELCIDADE DA CLARO FIBRA+
           </h3>
           <h3
-            className="text-black font-black uppercase tracking-tight text-3xl mb-8 md:text-2xl text-center"
+            className="text-black font-black uppercase tracking-tight text-3xl mb-8 md:text-2xl text-left"
             style={{ lineHeight: 1, letterSpacing: "-2px" }}
           >
             TENHA INTERNET ESTÁVEL, RÁPIDA E SEGURA PARA TODA A FAMÍLIA!
@@ -254,13 +258,13 @@ export default function Home() {
         <section className="mb-16">
           <SectionTitle
             align="left"
-            icon={<IoTvSharp size={28} className="text-[#A80000]" />}
+            icon={<IoTvSharp size={28} className="text-[#f00000]" />}
           >
             Claro TV+
           </SectionTitle>
           <section className="mb-16">
             <h3
-              className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-center mb-8 mt-15"
+              className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-left mb-8 mt-15"
               style={{ lineHeight: 1, letterSpacing: "-1px" }}
             >
               Transforme sua TV numa Smart TV com muito mais mobilidade
@@ -273,7 +277,7 @@ export default function Home() {
             </h3> */}
 
             {/* Cards coloridos ocupando todo o container, responsivos */}
-            <div className="flex flex-col sm:flex-row w-full gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row max-w-4xl gap-4 mb-8">
               {/* Card 1 */}
               <div
                 className="w-full sm:flex-1 sm:min-w-[220px] sm:max-w-[400px] rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden mb-4 sm:mb-0"
@@ -426,50 +430,174 @@ export default function Home() {
                   background: `linear-gradient(to bottom, #A80000 60%, #000 100%)`,
                 }}
               >
-                <div className="relative z-10 w-full mb-4">
-                  <span
-                    className="block font-bold text-lg text-left"
-                    style={{ color: "#fff" }}
-                  >
-                    Card 3
-                  </span>
-                  <p
-                    className="text-sm font-normal text-left max-w-[90%]"
-                    style={{ color: "#fff" }}
-                  >
-                    Descrição do Card 3
-                  </p>
+                {/* Logos e "com" centralizados como background decorativo */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0">
+                  <div className="flex flex-col items-center justify-center w-full -mt-23">
+                    <div className="flex items-center justify-center">
+                      <img
+                        src={claro}
+                        alt="Claro"
+                        className="w-[104px] h-auto"
+                        style={{ maxWidth: 120 }}
+                      />
+                      <span
+                        className="ml-2 text-2xl font-bold text-[#fff] drop-shadow-md mt-4"
+                        style={{ letterSpacing: "1px" }}
+                      >
+                        TV+
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-center mt-0">
+                      <span
+                        className="block font-bold text-lg text-center drop-shadow-md -mt-2"
+                        style={{ color: "#fff" }}
+                      >
+                        com
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-center -mt-20">
+                      <img
+                        src={globoplaywhite}
+                        alt="globoplaywhite"
+                        className="w-[180px] h-auto"
+                        style={{
+                          maxWidth: 180,
+                          filter: "brightness(0) invert(1)",
+                        }}
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-              {/* Card 4 */}
-              <div
-                className="w-full sm:flex-1 sm:min-w-[220px] sm:max-w-[400px] rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden"
-                style={{
-                  background: `linear-gradient(to bottom, #d1001f 60%, #000 100%)`,
-                }}
-              >
+                {/* Conteúdo do card na frente, alinhado à esquerda e abaixo */}
                 <div className="relative z-10 w-full mb-4">
                   <span
-                    className="block font-bold text-lg text-left"
+                    className="block font-bold text-lg text-left drop-shadow-md"
                     style={{ color: "#fff" }}
                   >
-                    Card 4
+                    Globoplay em todos os pacotes
                   </span>
                   <p
-                    className="text-sm font-normal text-left max-w-[90%]"
+                    className="text-sm font-normal text-left max-w-[90%] drop-shadow-md mt-2"
                     style={{ color: "#fff" }}
                   >
-                    Descrição do Card 4
+                    Tenha os melhores conteúdos Globo para ver onde e quando
+                    quiser
                   </p>
                 </div>
               </div>
             </div>
-            <img
-              src={clarotv}
-              alt="Claro TV+"
-              className="w-full h-auto rounded-xl shadow-md mb-6"
-              style={{ objectFit: "cover" }}
-            />
+
+            {/* Seção de TV Box */}
+            <h3 className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-left mb-8 mt-15">
+              Conheça os modelos Box Claro tv+
+            </h3>
+            <div className="w-full max-w-4xl flex flex-col sm:flex-row gap-6 justify-start items-start mb-8">
+              {/* TV Box 1 */}
+              <div className="flex flex-col items-center w-full sm:w-1/3">
+                <img
+                  src={tvbox1}
+                  alt="TV Box 1"
+                  className="w-40 sm:w-56 h-auto mb-4"
+                  style={{ maxWidth: 240 }}
+                />
+                <span className="block font-bold text-2xl text-center drop-shadow-md mb-1">
+                  <span style={{ color: "#000" }}>Box </span>
+                  <span style={{ color: "#f00000" }}>Claro tv+</span>
+                </span>
+                <p
+                  className="text-sm font-bold text-center max-w-[90%] drop-shadow-md"
+                  style={{ color: "#000000" }}
+                >
+                  Resolução Full HD.
+                </p>
+                <p
+                  className="text-sm font-normal text-center max-w-[90%] drop-shadow-md"
+                  style={{ color: "#000000" }}
+                >
+                  Comandos de voz Alexa.
+                  <br></br>
+                  Wi-fi: Leve sua box para onde quiser
+                  <br></br>
+                  Acesse o app Claro tv+
+                </p>
+              </div>
+              {/* TV Box 2 */}
+              <div className="flex flex-col items-center w-full sm:w-1/3">
+                <img
+                  src={tvbox2}
+                  alt="TV Box 2"
+                  className="w-40 sm:w-56 h-auto mb-4"
+                  style={{ maxWidth: 240 }}
+                />
+                <span className="block font-bold text-2xl text-center drop-shadow-md mb-1">
+                  <span style={{ color: "#000" }}>4K </span>
+                  <span style={{ color: "#f00000" }}>Claro tv+</span>
+                </span>
+                <p
+                  className="text-sm font-bold text-center max-w-[90%] drop-shadow-md"
+                  style={{ color: "#000000" }}
+                >
+                  Resolução 4K Ultra HD com Doubly Atmos.
+                </p>
+                <p
+                  className="text-sm font-bold text-center max-w-[90%] drop-shadow-md"
+                  style={{ color: "#000000" }}
+                >
+                  Volte a programação em até 7 dias.
+                </p>
+                <p
+                  className="text-sm font-normal text-center max-w-[90%] drop-shadow-md"
+                  style={{ color: "#000000" }}
+                >
+                  Comandos de voz Alexa.
+                  <br></br>
+                  Wi-fi: Leve sua box para onde quiser
+                  <br></br>
+                  Acesse o app Claro tv+
+                </p>
+              </div>
+              {/* TV Box 4K */}
+              <div className="flex flex-col items-center w-full sm:w-1/3">
+                <img
+                  src={tvbox4k}
+                  alt="TV Box 4k"
+                  className="w-40 sm:w-56 h-auto mb-4"
+                  style={{ maxWidth: 240 }}
+                />
+                <span className="block font-bold text-2xl text-center drop-shadow-md mb-1">
+                  <span style={{ color: "#000" }}>Soundbox </span>
+                  <span style={{ color: "#f00000" }}>Claro tv+</span>
+                </span>
+                <p
+                  className="text-sm font-bold text-center max-w-[90%] drop-shadow-md"
+                  style={{ color: "#000000" }}
+                >
+                  Resolução 4K HDR e SoundBar embutido.
+                </p>
+                <p
+                  className="text-sm font-bold text-center max-w-[90%] drop-shadow-md"
+                  style={{ color: "#000000" }}
+                >
+                  Som refinado por Bang & Olufsen e Doubly atmos.
+                </p>
+                <p
+                  className="text-sm font-bold text-center max-w-[90%] drop-shadow-md"
+                  style={{ color: "#000000" }}
+                >
+                  Volte a programação em até 7 dias.
+                </p>
+                <p
+                  className="text-sm font-normal text-center max-w-[90%] drop-shadow-md"
+                  style={{ color: "#000000" }}
+                >
+                  Comandos de voz Alexa.
+                  <br></br>
+                  Wi-fi: Leve sua box para onde quiser
+                  <br></br>
+                  Acesse o app Claro tv+
+                </p>
+              </div>
+            </div>
           </section>
         </section>
       </div>

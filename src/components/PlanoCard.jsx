@@ -39,7 +39,7 @@ const PlanoCard = React.memo(function PlanoCard({
           : "bg-white"
       } ${borderClass} rounded-xl p-4 w-full max-w-[140px] sm:max-w-[160px] md:max-w-[180px] transition-all ${textColor}`}
       whileHover={{
-        scale: 1.05,
+        scale: 1.01,
         boxShadow: "0 8px 32px 0 rgba(168,0,0,0.18)",
         y: -8,
         borderColor: selecionado ? "#dc2626" : "#A80000",

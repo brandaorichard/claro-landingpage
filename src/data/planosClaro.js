@@ -263,32 +263,32 @@ export const planosFibra = [{
       { img: wifiLogo, label: "wifi" },
     ]
   },
-  {
-    nome: "Claro Fibra+ 750 Mega",
-    total: "750 Mega",
-    detalhes: [
-      "Wi-Fi Plus incluso",
-      "Globoplay incluso",
-    ],
-    preco: "R$129,90/mês",
-    beneficios: [
-      { img: globoplayLogo, label: "GloboPlay" },
-      { img: wifiLogo, label: "wifi" },
-    ]
-  },
-  {
-    nome: "Claro Fibra+ 1 Giga",
-    total: "1 Giga",
-    detalhes: [
-      "Wi-Fi Plus incluso",
-      "Globoplay incluso",
-    ],
-    preco: "R$199,90/mês",
-    beneficios: [
-      { img: globoplayLogo, label: "GloboPlay" },
-      { img: wifiLogo, label: "wifi" },
-    ]
-  },
+  // {
+  //   nome: "Claro Fibra+ 750 Mega",
+  //   total: "750 Mega",
+  //   detalhes: [
+  //     "Wi-Fi Plus incluso",
+  //     "Globoplay incluso",
+  //   ],
+  //   preco: "R$129,90/mês",
+  //   beneficios: [
+  //     { img: globoplayLogo, label: "GloboPlay" },
+  //     { img: wifiLogo, label: "wifi" },
+  //   ]
+  // },
+  // {
+  //   nome: "Claro Fibra+ 1 Giga",
+  //   total: "1 Giga",
+  //   detalhes: [
+  //     "Wi-Fi Plus incluso",
+  //     "Globoplay incluso",
+  //   ],
+  //   preco: "R$199,90/mês",
+  //   beneficios: [
+  //     { img: globoplayLogo, label: "GloboPlay" },
+  //     { img: wifiLogo, label: "wifi" },
+  //   ]
+  // },
 ];
 
 // Planos Claro TV+

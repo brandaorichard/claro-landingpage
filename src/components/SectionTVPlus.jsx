@@ -30,7 +30,7 @@ export default function SectionTVPlus(props) {
       </SectionTitle>
       <section className="mb-16">
             <h3
-              className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-left mb-8 mt-15"
+              className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-left mb-8 mt-5"
               style={{ lineHeight: 1, letterSpacing: "-1px" }}
             >
               Transforme sua TV numa Smart TV com muito mais mobilidade
@@ -139,16 +139,16 @@ export default function SectionTVPlus(props) {
               >
                 {/* Logos e "com" centralizados como background decorativo */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0">
-                  <div className="flex flex-col items-center justify-center w-full -mt-34">
+                  <div className="flex flex-col items-center justify-center w-full -mt-18">
                     <div className="flex items-center justify-center">
                       <img
                         src={claro}
                         alt="Claro"
-                        className="w-[104px] h-auto"
-                        style={{ maxWidth: 120 }}
+                        className="w-[150px] h-auto"
+                        style={{ maxWidth: 150 }}
                       />
                       <span
-                        className="ml-2 text-2xl font-bold text-[#fff] drop-shadow-md mt-4"
+                        className="ml-2 text-5xl font-bold text-[#fff] drop-shadow-md mt-6  "
                         style={{ letterSpacing: "1px" }}
                       >
                         TV+
@@ -166,8 +166,8 @@ export default function SectionTVPlus(props) {
                       <img
                         src={netflixred}
                         alt="netflixred"
-                        className="w-[180px] h-auto"
-                        style={{ maxWidth: 180 }}
+                        className="w-[200px] h-auto"
+                        style={{ maxWidth: 200 }}
                       />
                     </div>
                   </div>
@@ -193,21 +193,21 @@ export default function SectionTVPlus(props) {
               <div
                 className="w-full sm:flex-1 sm:min-w-[220px] sm:max-w-[400px] rounded-xl h-[320px] sm:h-[405px] flex flex-col items-start justify-end text-white font-bold text-lg px-4 sm:px-6 pb-2 relative overflow-hidden mb-4 sm:mb-0"
                 style={{
-                  background: `linear-gradient(to bottom, #A80000 60%, #000 100%)`,
+                  background: `#1A1A1A`,
                 }}
               >
                 {/* Logos e "com" centralizados como background decorativo */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0">
-                  <div className="flex flex-col items-center justify-center w-full -mt-23">
-                    <div className="flex items-center justify-center">
-                      <img
+                  <div className="flex flex-col items-center justify-center w-full -mt-18">
+                    <div className="flex items-center justify-center mt-16">
+                    <img
                         src={claro}
                         alt="Claro"
-                        className="w-[104px] h-auto"
-                        style={{ maxWidth: 120 }}
+                        className="w-[150px] h-auto"
+                        style={{ maxWidth: 150 }}
                       />
                       <span
-                        className="ml-2 text-2xl font-bold text-[#fff] drop-shadow-md mt-4"
+                        className="ml-2 text-5xl font-bold text-[#fff] drop-shadow-md mt-6  "
                         style={{ letterSpacing: "1px" }}
                       >
                         TV+
@@ -215,20 +215,19 @@ export default function SectionTVPlus(props) {
                     </div>
                     <div className="flex items-center justify-center mt-0">
                       <span
-                        className="block font-bold text-lg text-center drop-shadow-md -mt-2"
+                        className="block font-bold text-lg text-center drop-shadow-md"
                         style={{ color: "#fff" }}
                       >
                         com
                       </span>
                     </div>
-                    <div className="flex items-center justify-center -mt-20">
+                    <div className="flex items-center justify-center -mt-26">
                       <img
                         src={globoplaywhite}
                         alt="globoplaywhite"
-                        className="w-[180px] h-auto"
+                        className="w-[250px] h-auto"
                         style={{
-                          maxWidth: 180,
-                          filter: "brightness(0) invert(1)",
+                          maxWidth: 250,
                         }}
                       />
                     </div>

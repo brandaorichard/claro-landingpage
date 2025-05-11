@@ -6,7 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 const sections = [
   { label: "Para seu celular", id: "claro-movel" },
   { label: "Para sua casa", id: "claro-fibra" },
-  { label: "Celulares", id: null },
+  { label: "Smartphones", id: null },
 ];
 
 export default function Header({ onSectionClick }) {

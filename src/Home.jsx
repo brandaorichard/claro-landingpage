@@ -5,6 +5,8 @@ import SectionFibra from "./components/SectionFibra";
 import SectionTVPlus from "./components/SectionTVPlus";
 import DescontoBadge from "./components/DescontoBadge";
 import Header from "./components/Header";
+import FormClaro from "./components/FormClaro";
+import FormVerticalTab from "./components/FormVerticalTab";
 
 export default function Home() {
   // Estados de seleção por seção
@@ -48,6 +50,14 @@ export default function Home() {
     const el = document.getElementById(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const formRef = useRef();
+
+  const scrollToForm = () => {
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
 
@@ -97,6 +107,12 @@ export default function Home() {
           />
         </div>
       </div>
+
+      {/* Formulário abaixo da seção TV */}
+      <FormClaro formRef={formRef} />
+
+      {/* Aba vertical fixa para o formulário */}
+      <FormVerticalTab onClick={scrollToForm} />
 
       {/* Círculo de desconto flutuante (fixo) */}
       {showFloating && (

@@ -24,7 +24,7 @@ export default function SectionMobile({ cardSelecionado, onSelecionarCard }) {
               plano={plano}
               key={id}
               selecionado={cardSelecionado === id}
-              onClick={() => onSelecionarCard(id)}
+              onClick={() => onSelecionarCard(cardSelecionado === id ? null : id)}
             />
           );
         })}

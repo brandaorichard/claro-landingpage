@@ -1,44 +1,100 @@
-// src/components/Header.jsx
+import React, { useState } from "react";
 import claroLogo from "../assets/claro.svg";
-import { FaCheckCircle } from "react-icons/fa";
+import { FiPhone } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
-const checks = [
-  "Exclusivo para quem já é da Claro",
-  "Combos integrados em uma só fatura",
-  "Atendimento especial e consultoria personalizada",
+const sections = [
+  { label: "Para seu celular", id: "claro-movel" },
+  { label: "Para sua casa", id: "claro-fibra" },
+  { label: "Celulares", id: null },
 ];
 
-const textoImagem = (
-  <>
-    <span className="block">Planos móveis, banda larga e TV</span>
-    <span className="block">com benefícios exclusivos para você</span>
-    <span className="block">e sua família.</span>
-  </>
-);
+export default function Header({ onSectionClick }) {
+  const [open, setOpen] = useState(false);
 
-export default function Header() {
   return (
-    <header className="w-full bg-gradient-to-b from-[#7e0000] via-[#c10000] to-[#ff1a1a] text-white py-10 px-4 flex flex-col items-center relative">
-      {/* Logo Claro: centralizado no mobile, absoluto à esquerda no md+ */}
-      <img
-        src={claroLogo}
-        alt="Claro"
-        className="w-20 h-auto mb-4 md:mb-0 md:w-24 md:absolute md:left-6 md:top-6 md:block"
-      />
+    <header className="fixed top-0 left-0 w-full bg-[#f30000] text-white px-0 py-4 shadow z-30 font-sans">
+      {/* Dropdown mobile: antes do container, colado à esquerda */}
+      {open && (
+        <div className="absolute left-0 top-full w-1/2 bg-white py-3 px-4 rounded-b-lg shadow-lg z-20 flex flex-col items-start md:hidden">
+          {sections.map((section, idx) => (
+            <span
+              key={idx}
+              className="uppercase font-bold text-base tracking-tight text-[#C10000] mb-2 cursor-pointer"
+              style={{ letterSpacing: "-0.5px" }}
+              onClick={() => {
+                if (section.id && onSectionClick) {
+                  onSectionClick(section.id);
+                  setOpen(false);
+                }
+              }}
+            >
+              {section.label}
+            </span>
+          ))}
+        </div>
+      )}
 
-      <h1 className="text-lg md:text-2xl font-extrabold tracking-tight text-center mb-6 mt-2 md:mt-0" style={{ lineHeight: 1, letterSpacing: "-1px" }}>
-        CLIENTE CLARO TEM MAIS VANTAGENS!
-      </h1>
-      <div className="flex flex-col tracking-tight md:flex-row justify-center items-center gap-8 mb-6">
-        {checks.map((texto, idx) => (
-          <div className="flex items-center gap-2" key={idx} style={{ letterSpacing: "-1px" }}>
-            <FaCheckCircle className="text-green-400" size={28} />
-            <span className="font-semibold text-lg text-center">{texto}</span>
-          </div>
-        ))}
-      </div>
-      <div className="text-center text-white text-xl tracking-tight md:text-2xl font-bold leading-tight" style={{ letterSpacing: "-1px" }}>
-        {textoImagem}
+      {/* Container centralizado */}
+      <div className="max-w-7xl mx-auto w-full flex items-center px-4">
+        {/* Botão de menu à esquerda */}
+        <button
+          className="md:hidden p-2 mr-2"
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Abrir menu"
+        >
+          <svg width={28} height={28} fill="none" viewBox="0 0 24 24">
+            <rect y="5" width="24" height="2" rx="1" fill="white" />
+            <rect y="11" width="24" height="2" rx="1" fill="white" />
+            <rect y="17" width="24" height="2" rx="1" fill="white" />
+          </svg>
+        </button>
+
+        {/* Logo da Claro */}
+        <div className="flex-shrink-0 flex items-center">
+          <img src={claroLogo} alt="Claro" className="w-22 h-auto pb-3" />
+        </div>
+
+        {/* Seções centralizadas (desktop) */}
+        <div className="flex-1 flex justify-center">
+          <nav className="hidden md:flex flex-row gap-6 items-center">
+            {sections.map((section, idx) => (
+              <span
+                key={idx}
+                className="uppercase font-bold text-base tracking-tight text-white cursor-pointer"
+                style={{ letterSpacing: "-0.5px" }}
+                onClick={() =>
+                  section.id && onSectionClick && onSectionClick(section.id)
+                }
+              >
+                {section.label}
+              </span>
+            ))}
+          </nav>
+        </div>
+
+        {/* Botões miniatura + Contrate */}
+        <div className="flex flex-shrink-0 items-center gap-2 ml-auto">
+          <button
+            className="bg-white text-[#C10000] rounded-full p-2 shadow hover:bg-gray-100 transition-colors duration-150"
+            style={{ fontSize: 18 }}
+            aria-label="Ligar"
+            type="button"
+          >
+            <FiPhone />
+          </button>
+          <button
+            className="bg-white text-[#25D366] rounded-full p-2 shadow hover:bg-gray-100 transition-colors duration-150"
+            style={{ fontSize: 18 }}
+            aria-label="WhatsApp"
+            type="button"
+          >
+            <FaWhatsapp />
+          </button>
+          <button className="bg-[#ffd900] text-[#000000] font-sans px-6 py-2 rounded-full text-sm shadow">
+            Contrate
+          </button>
+        </div>
       </div>
     </header>
   );

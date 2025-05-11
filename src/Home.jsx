@@ -6,10 +6,16 @@ import SectionFibra from "./components/SectionFibra";
 import SectionTVPlus from "./components/SectionTVPlus";
 
 export default function Home() {
+  const scrollToSection = (sectionId) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-gray-100 to-white">
-      <Header />
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-gray-100 to-white pt-15 font-sans">
+      <Header onSectionClick={scrollToSection} />
       <div className="flex items-center bg-white border border-black rounded-xl shadow-sm px-5 py-4 mt-10 mb-8 w-full max-w-lg mx-auto">
         {/* Ícone de localização em círculo vermelho escuro */}
         <span className="flex items-center justify-center w-12 h-12 rounded-full bg-[#A80000] mr-4">
@@ -51,11 +57,13 @@ export default function Home() {
           Qual plano você possui?
         </h3>
 
-        {/* Seção 1: Claro Móvel */}
-        <SectionMobile />
+        <div id="claro-movel" className="scroll-mt-20">
+          <SectionMobile />
+        </div>
 
-        {/* Seção 2: Claro Fibra+ */}
-        <SectionFibra />
+        <div id="claro-fibra" className="scroll-mt-20">
+          <SectionFibra />
+        </div>
 
         {/* Seção 3: Claro TV+ */}
         <SectionTVPlus />

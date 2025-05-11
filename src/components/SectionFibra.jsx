@@ -15,15 +15,11 @@ export default function SectionFibra() {
         Claro Fibra+
       </SectionTitle>
       <h3
-        className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-left mt-15"
+        className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-left mt-5 mb-8"
         style={{ lineHeight: 1, letterSpacing: "-1px" }}
       >
         NAVEGUE COM A ULTRAVELCIDADE DA CLARO FIBRA+
-      </h3>
-      <h3
-        className="text-black font-black uppercase tracking-tight text-3xl mb-8 md:text-2xl text-left"
-        style={{ lineHeight: 1, letterSpacing: "-2px" }}
-      >
+        <br></br>
         TENHA INTERNET ESTÁVEL, RÁPIDA E SEGURA PARA TODA A FAMÍLIA!
       </h3>
       {/* Imagem de fundo com blocos informativos sobrepostos */}

@@ -89,7 +89,7 @@ const PlanoCard = React.memo(function PlanoCard({
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
           type="button"
         >
-          Quero este!
+          Selecionar
         </motion.button>
       )}
 

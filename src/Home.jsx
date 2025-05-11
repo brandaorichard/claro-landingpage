@@ -1,11 +1,35 @@
 // src/pages/Home.jsx
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import SectionMobile from "./components/SectionMobile";
 import SectionFibra from "./components/SectionFibra";
 import SectionTVPlus from "./components/SectionTVPlus";
+import { motion, useAnimation } from "framer-motion";
+import DescontoBadge from "./components/DescontoBadge";
 
 export default function Home() {
+  // Estado global: apenas um card pode ser selecionado em todas as seções
+  const [cardSelecionado, setCardSelecionado] = useState(null);
+  const [cardMovelSelecionado, setCardMovelSelecionado] = useState(null);
+  const [cardFibraSelecionado, setCardFibraSelecionado] = useState(null);
+
+  const desconto =
+    (cardMovelSelecionado ? 5 : 0) + (cardFibraSelecionado ? 5 : 0);
+
+  // Animação
+  const controls = useAnimation();
+  useEffect(() => {
+    controls.start({
+      scale: [1, 1.2, 1],
+      transition: { duration: 0.4, times: [0, 0.5, 1] },
+    });
+  }, [desconto]);
+
+  // Função para passar para as seções filhas
+  const handleSelecionarCard = (id) => {
+    setCardSelecionado((prev) => (prev === id ? null : id));
+  };
+
   const scrollToSection = (sectionId) => {
     const el = document.getElementById(sectionId);
     if (el) {
@@ -16,6 +40,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-gray-100 to-white pt-15 font-sans">
       <Header onSectionClick={scrollToSection} />
+
       <div className="flex items-center bg-white border border-black rounded-xl shadow-sm px-5 py-4 mt-10 mb-8 w-full max-w-lg mx-auto">
         {/* Ícone de localização em círculo vermelho escuro */}
         <span className="flex items-center justify-center w-12 h-12 rounded-full bg-[#A80000] mr-4">
@@ -49,24 +74,50 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       <div className="text-black py-10 px-4 max-w-6xl mx-auto">
         <h3
           className="text-black font-black uppercase tracking-tight text-2xl md:text-3xl mb-15 text-left"
           style={{ lineHeight: 1, letterSpacing: "-2px" }}
         >
-          Qual plano você possui?
+          Selecione seus serviços Claro para somar descontos em smartphones.
         </h3>
 
+        {/* Bloco de desconto global */}
+        <div className="flex items-center gap-3 mb-10">
+          <motion.div
+            animate={controls}
+            className="bg-[#f00000] text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl font-black shadow transition-all duration-300"
+          >
+            {desconto}%
+          </motion.div>
+          <span className="text-base font-medium text-[#f00000]">
+            Seu desconto acumulado
+          </span>
+        </div>
+
         <div id="claro-movel" className="scroll-mt-20">
-          <SectionMobile />
+          <SectionMobile
+            cardSelecionado={cardMovelSelecionado}
+            onSelecionarCard={setCardMovelSelecionado}
+          />
         </div>
 
         <div id="claro-fibra" className="scroll-mt-20">
-          <SectionFibra />
+          <SectionFibra
+            cardSelecionado={cardFibraSelecionado}
+            onSelecionarCard={setCardFibraSelecionado}
+          />
         </div>
 
         {/* Seção 3: Claro TV+ */}
-        <SectionTVPlus />
+        <SectionTVPlus
+          cardSelecionado={cardSelecionado}
+          onSelecionarCard={handleSelecionarCard}
+        />
+
+        {/* Círculo de desconto fixo */}
+        <DescontoBadge desconto={desconto} controls={controls} />
       </div>
     </div>
   );

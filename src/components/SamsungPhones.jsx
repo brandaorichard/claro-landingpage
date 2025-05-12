@@ -1,6 +1,8 @@
 import React from "react";
 import samsungLogo from "../assets/samsunglogo.png";
 
+// a16, a36, s24
+
 export default function SamsungPhones() {
   return (
     <div className="w-full flex flex-col gap-4 mb-8 mt-30">

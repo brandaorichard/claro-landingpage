@@ -1,12 +1,19 @@
-// AppleCard1.jsx
 import React from "react";
+import { motion } from "framer-motion";
 import iphoneclaro from "../assets/iphoneclaro.png";
 import appleLogo from "../assets/13logo.png"; // logo do iphone 13
 import applelogo2 from "../assets/art2.png"; // logo do iphone 13
 
-export default function AppleCard1() {
+export default function AppleCard1({ selected, onClick }) {
   return (
-    <div className="bg-gradient-to-b from-[#A80000] to-[#3B1812] rounded-2xl shadow-lg w-[65%] h-120 mx-auto flex flex-col justify-between items-center p-6 overflow-hidden">
+    <motion.div
+      className={`bg-gradient-to-b from-[#A80000] to-[#3B1812] rounded-2xl shadow-lg w-[65%] h-120 mx-auto flex flex-col justify-between items-center p-6 overflow-hidden cursor-pointer transition-all duration-200
+        ${
+          selected ? "border-6 border-[#f8b807]" : "border-2 border-transparent"
+        }`}
+      whileTap={{ scale: 2.00}}
+      onClick={onClick}
+    >
       {/* Container da imagem */}
       <div className="h-[200px] w-[200px] flex items-center justify-center">
         <img
@@ -42,6 +49,6 @@ export default function AppleCard1() {
           Eu quero
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }

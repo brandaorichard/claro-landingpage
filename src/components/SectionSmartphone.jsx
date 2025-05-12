@@ -10,6 +10,9 @@ import galaxy from "../assets/galaxytext.png"; // logo da Galaxy
 import motorolalogo from "../assets/motorolalogo.png"; // logo da Motorola
 import edgepro from "../assets/edgepro50.png"; // logo da Motorola Edge Pro
 import { AnimatePresence, motion } from "framer-motion";
+import ApplePhones from "./ApplePhones";
+import SamsungPhones from "./SamsungPhones";
+import MotorolaPhones from "./MotorolaPhones";
 
 const carouselData = [
   {
@@ -154,6 +157,10 @@ export default function SectionSmartphones() {
             />
           ))}
         </div>
+
+        <ApplePhones />
+        <SamsungPhones />
+        <MotorolaPhones />
       </div>
     </section>
   );

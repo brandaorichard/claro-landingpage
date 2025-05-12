@@ -7,6 +7,7 @@ import DescontoBadge from "./components/DescontoBadge";
 import Header from "./components/Header";
 import FormClaro from "./components/FormClaro";
 import FormVerticalTab from "./components/FormVerticalTab";
+import SectionSmartphones from "./components/SectionSmartphone";
 
 export default function Home() {
   // Estados de seleção por seção
@@ -17,15 +18,14 @@ export default function Home() {
 
   // Desconto acumulado
   const desconto =
-    (cardMovelSelecionado ? 5 : 0) +
-    (cardFibraSelecionado ? 5 : 0);
-    // + (cardTVSelecionado ? 5 : 0);
+    (cardMovelSelecionado ? 5 : 0) + (cardFibraSelecionado ? 5 : 0);
+  // + (cardTVSelecionado ? 5 : 0);
 
   // Animação do círculo
   const controls = useAnimation();
   useEffect(() => {
     controls.start({
-      scale: [1, 1.20, 1],
+      scale: [1, 1.2, 1],
       transition: { duration: 0.4, times: [0, 0.5, 1] },
     });
   }, [desconto]);
@@ -102,10 +102,14 @@ export default function Home() {
         </div>
         <div id="claro-tvplus" className="scroll-mt-20">
           <SectionTVPlus
-            // cardSelecionado={cardTVSelecionado}
-            // onSelecionarCard={setCardTVSelecionado}
+          // cardSelecionado={cardTVSelecionado}
+          // onSelecionarCard={setCardTVSelecionado}
           />
         </div>
+      </div>
+
+      <div id="smartphones" className="scroll-mt-20">
+        <SectionSmartphones />
       </div>
 
       {/* Formulário abaixo da seção TV */}

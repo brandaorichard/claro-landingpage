@@ -253,7 +253,7 @@ export default function SectionTVPlus(props) {
             </div>
 
             {/* Seção de TV Box */}
-            <h3 className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-center mb-8 mt-15">
+            <h3 className="text-black font-black uppercase tracking-tight text-3xl md:text-2xl text-left mb-8 mt-15">
               Conheça os modelos Box Claro tv+
             </h3>
             <div className="w-full max-w-4xl flex flex-col sm:flex-row gap-6 justify-start items-start mb-8">

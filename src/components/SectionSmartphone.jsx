@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "./SectionTitle";
 import { FaMobileAlt, FaApple } from "react-icons/fa";
-import iphonezera from "../assets/iphonezera.png";
+import iphonezera from "../assets/iphone13redbg.png";
 import claroLogoPreta from "../assets/clarotv.png";
 import s24 from "../assets/s24.png";
 import motorolaedge2 from "../assets/motorolaedge2.png";
@@ -9,6 +9,7 @@ import samsungLogo from "../assets/samsungwhite.png"; // logo da Samsung
 import galaxy from "../assets/galaxytext.png"; // logo da Galaxy
 import motorolalogo from "../assets/motorolalogo.png"; // logo da Motorola
 import edgepro from "../assets/edgepro50.png"; // logo da Motorola Edge Pro
+import { AnimatePresence, motion } from "framer-motion";
 
 const carouselData = [
   {
@@ -31,24 +32,23 @@ export default function SectionSmartphones() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => (prev + 1) % carouselData.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section className="mb-16">
-      <SectionTitle
-        align="left"
-        icon={<FaMobileAlt size={28} className="text-[#f00000]" />}
-      >
-        <span className="flex items-center gap-2 font-bold text-black text-2xl">
-          Smartphones
-        </span>
-      </SectionTitle>
-
-      <div className="w-full max-w-2xl mx-auto mt-8">
+      <div className="w-screen sm:w-full sm:max-w-2xl mt-8 relative left-1/2 sm:left-0 -translate-x-1/2 sm:translate-x-0">
+        <SectionTitle
+          align="left"
+          icon={<FaMobileAlt size={28} className="text-[#f00000]" />}
+        >
+          <span className="flex gap-2 font-bold text-black text-2xl">
+            Smartphones
+          </span>
+        </SectionTitle>
         <div
-          className={`w-full min-h-[22rem] flex flex-col justify-between items-center text-white transition-all duration-500 relative`}
+          className="w-full flex flex-col justify-center items-center text-white transition-all duration-500 relative overflow-hidden"
           style={
             active === 0
               ? {
@@ -62,82 +62,84 @@ export default function SectionSmartphones() {
                 }
           }
         >
-          {/* Card 2: Samsung S24 */}
-          {active === 1 && (
-            <>
-              {/* Imagem de fundo */}
-              <img
-                src={s24}
-                alt="Galaxy S24"
-                className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
-                style={{ borderRadius: 0, background: "#000" }}
-                draggable={false}
-              />
-              {/* Conteúdo sobreposto */}
-              <div className="absolute top-6 left-2 w-full flex flex-col items-start z-20">
-                <img
-                  src={samsungLogo}
-                  alt="Samsung"
-                  className="w-50 h-30 object-contain mt-10"
-                  draggable={false}
-                />
-                <img
-                  src={galaxy}
-                  alt="Galaxy"
-                  className="w-50 h-30 object-contain -mt-10"
-                  style={{ filter: "invert(1) brightness(2)" }}
-                  draggable={false}
-                />
-              </div>
-            </>
-          )}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="w-full flex flex-col justify-center items-center relative"
+            >
+              {/* Card Samsung */}
+              {active === 1 && (
+                <>
+                  <img
+                    src={s24}
+                    alt="Galaxy S24"
+                    className="w-screen sm:w-full h-auto max-h-[28rem] object-contain pointer-events-none"
+                    style={{ borderRadius: 0, background: "#000" }}
+                    draggable={false}
+                  />
+                  <div className="absolute left-0 top-0 h-full flex flex-col justify-center items-start z-20 px-12 py-6">
+                    <img
+                      src={samsungLogo}
+                      alt="Samsung"
+                      className="w-40 h-24 object-contain mb-2"
+                      draggable={false}
+                    />
+                    <img
+                      src={galaxy}
+                      alt="Galaxy"
+                      className="w-40 h-24 object-contain mb-4"
+                      style={{ filter: "invert(1) brightness(2)" }}
+                      draggable={false}
+                    />
+                  </div>
+                </>
+              )}
 
-          {/* Card 3: Motorola */}
-          {active === 2 && (
-            <>
-              {/* Imagem de fundo */}
-              <img
-                src={motorolaedge2}
-                alt="Motorola Edge"
-                className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
-                style={{ borderRadius: 0, background: "#000" }}
-                draggable={false}
-              />
-              {/* Logo da Motorola sobreposta, alinhada à esquerda */}
-              <div className="absolute top-26 left-6 w-full flex flex-col items-start z-20">
-                <img
-                  src={motorolalogo}
-                  alt="Motorola"
-                  className="w-40 h-20 object-contain mb-2"
-                  style={{ filter: "invert(1) brightness(2)" }}
-                  draggable={false}
-                />
-                {/* Se quiser adicionar texto abaixo, basta colocar aqui */}
-              </div>
-              {/* Logo da Motorola sobreposta, alinhada à esquerda */}
-              <div className="absolute top-36 left-6 w-full flex flex-col items-start z-20">
-                <img
-                  src={edgepro}
-                  alt="Motorola"
-                  className="w-40 h-20 object-contain mb-2"
-                  style={{ filter: "invert(1) brightness(2)" }}
-                  draggable={false}
-                />
-                {/* Se quiser adicionar texto abaixo, basta colocar aqui */}
-              </div>
-            </>
-          )}
+              {/* Card Motorola */}
+              {active === 2 && (
+                <>
+                  <img
+                    src={motorolaedge2}
+                    alt="Motorola Edge"
+                    className="w-screen sm:w-full h-auto max-h-[28rem] object-contain pointer-events-none"
+                    style={{ borderRadius: 0, background: "#000" }}
+                    draggable={false}
+                  />
+                  <div className="absolute left-0 top-0 h-full flex flex-col justify-center items-start z-20 px-12 py-6">
+                    <img
+                      src={motorolalogo}
+                      alt="Motorola"
+                      className="w-33 h-24 object-contain mb-2"
+                      style={{ filter: "invert(1) brightness(2)" }}
+                      draggable={false}
+                    />
+                    <img
+                      src={edgepro}
+                      alt="Edge Pro"
+                      className="w-33 h-24 object-contain mb-4"
+                      style={{ filter: "invert(1) brightness(2)" }}
+                      draggable={false}
+                    />
+                  </div>
+                </>
+              )}
 
-          {/* Card 1: iPhone */}
-          {active === 0 && (
-            <img
-              src={iphonezera}
-              alt="iPhone"
-              className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
-              style={{ borderRadius: 0, background: "#000" }}
-              draggable={false}
-            />
-          )}
+              {/* Card iPhone */}
+              {active === 0 && (
+                <img
+                  src={iphonezera}
+                  alt="iPhone"
+                  className="w-screen sm:w-full h-auto max-h-[28rem] object-contain pointer-events-none"
+                  style={{ borderRadius: 0, background: "#000" }}
+                  draggable={false}
+                />
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
         {/* Toggle/indicador */}
         <div className="flex justify-center gap-2 mt-4">

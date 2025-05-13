@@ -146,8 +146,8 @@ export const planosPos = [
   // },
   {
     nome: "Pós 25GB",
-    total: "100 GB",
-    detalhes: ["Single Total: 50 GB"],
+    total: "25 GB",
+    detalhes: ["Single Total: 50 GB", "Multi Total: 100 GB"],
     preco: "R$119,90/mês",
     beneficios: [
       { icon: FaInstagram, color: "#E1306C", label: "Instagram" },
@@ -164,8 +164,8 @@ export const planosPos = [
   },
   {
     nome: "Pós 30GB GeForce",
-    total: "120 GB",
-    detalhes: ["Single Total: 60 GB"],
+    total: "30 GB",
+    detalhes: ["Single Total: 60 GB", "Multi Total: 120 GB"],
     preco: "R$149,90/mês",
     beneficios: [
       { icon: FaInstagram, color: "#E1306C", label: "Instagram" },
@@ -182,8 +182,8 @@ export const planosPos = [
   },
   {
     nome: "Pós 50GB",
-    total: "200 GB",
-    detalhes: ["Single Total: 100 GB"],
+    total: "50 GB",
+    detalhes: ["Single Total: 100 GB", "Multi Total: 200 GB"],
     preco: "R$169,90/mês",
     beneficios: [
       { icon: FaInstagram, color: "#E1306C", label: "Instagram" },
@@ -200,8 +200,8 @@ export const planosPos = [
   },
   {
     nome: "Pós 75GB",
-    total: "300 GB",
-    detalhes: ["Single Total: 75 GB"],
+    total: "75 GB",
+    detalhes: ["Single Total: 150 GB", "Multi Total: 300 GB"],
     preco: "R$219,90/mês",
     beneficios: [
       { icon: FaInstagram, color: "#E1306C", label: "Instagram" },
@@ -218,8 +218,8 @@ export const planosPos = [
   },
   {
     nome: "Pós 150GB",
-    total: "600 GB",
-    detalhes: ["Single Total: 300 GB"],
+    total: "150 GB",
+    detalhes: ["Single Total: 300 GB", "Multi Total: 600 GB"],
     preco: "R$319,90/mês",
     beneficios: [
       { icon: FaInstagram, color: "#E1306C", label: "Instagram" },

@@ -13,6 +13,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import ApplePhones from "./ApplePhones";
 import SamsungPhones from "./SamsungPhones";
 import MotorolaPhones from "./MotorolaPhones";
+import {
+  appleCellphones,
+  samsungCellphones,
+  motorolaCellphones,
+} from "../data/products.js";
 
 const carouselData = [
   {
@@ -29,7 +34,10 @@ const carouselData = [
   },
 ];
 
-export default function SectionSmartphones() {
+export default function SectionSmartphones({
+  onSelecionarSmartphone,
+  smartphonesSelecionados,
+}) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -38,6 +46,23 @@ export default function SectionSmartphones() {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  // Handler para seleção de smartphone
+  const handleSelect = (marca, idx) => {
+    const modelo =
+      marca === "apple"
+        ? appleCellphones[idx].nome
+        : marca === "samsung"
+        ? samsungCellphones[idx].nome
+        : marca === "motorola"
+        ? motorolaCellphones[idx].nome
+        : null;
+
+    // Chame apenas o handler do Home
+    if (onSelecionarSmartphone) {
+      onSelecionarSmartphone(marca, modelo);
+    }
+  };
 
   return (
     <section className="mb-16">
@@ -71,7 +96,7 @@ export default function SectionSmartphones() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
               className="w-full flex flex-col justify-center items-center relative"
             >
               {/* Card Samsung */}
@@ -158,9 +183,18 @@ export default function SectionSmartphones() {
           ))}
         </div>
 
-        <ApplePhones />
-        <SamsungPhones />
-        <MotorolaPhones />
+        <ApplePhones
+          selected={smartphonesSelecionados.apple}
+          onSelect={(idx) => handleSelect("apple", idx)}
+        />
+        <SamsungPhones
+          selected={smartphonesSelecionados.samsung}
+          onSelect={(idx) => handleSelect("samsung", idx)}
+        />
+        <MotorolaPhones
+          selected={smartphonesSelecionados.motorola}
+          onSelect={(idx) => handleSelect("motorola", idx)}
+        />
       </div>
     </section>
   );

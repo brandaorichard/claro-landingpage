@@ -4,7 +4,7 @@ function getPlanoResumo(plano) {
   if (!plano) return { titulo: "", descricao: "" };
   return {
     titulo: `${plano.nome} ${plano.total}`,
-    descricao: plano.detalhes ? plano.detalhes.join(" ") : ""
+    descricao: plano.detalhes ? plano.detalhes.join(" ") : "",
   };
 }
 
@@ -27,7 +27,7 @@ function maskPhone(value) {
   return value;
 }
 
-export default function FormClaro({ formRef, planoMovel, planoFibra }) {
+export default function FormClaro({ formRef, planoMovel, planoFibra, smartphonesSelecionados }) {
   const movel = getPlanoResumo(planoMovel);
   const fibra = getPlanoResumo(planoFibra);
 
@@ -42,7 +42,9 @@ export default function FormClaro({ formRef, planoMovel, planoFibra }) {
   const handleNomeChange = (e) => {
     const value = e.target.value;
     setNome(value);
-    setNomeErro(value.length > 0 && value.length < 6 ? "Mínimo 6 caracteres" : "");
+    setNomeErro(
+      value.length > 0 && value.length < 6 ? "Mínimo 6 caracteres" : ""
+    );
   };
 
   // Máscara e validação do CPF
@@ -63,14 +65,19 @@ export default function FormClaro({ formRef, planoMovel, planoFibra }) {
       return;
     }
     // Aqui você pode adicionar outras validações e lógica de envio
-    alert(
-      `Formulário enviado!\nTV+: ${possuiTV === "sim" ? "Sim" : "Não"}`
-    );
+    alert(`Formulário enviado!\nTV+: ${possuiTV === "sim" ? "Sim" : "Não"}`);
   };
+
+  const modelosCelulares = [
+    smartphonesSelecionados?.apple,
+    smartphonesSelecionados?.samsung,
+    smartphonesSelecionados?.motorola,
+  ]
+    .filter(Boolean)
+    .join('\n');
 
   return (
     <form
-      
       ref={formRef}
       onSubmit={handleSubmit}
       className="bg-white border align-center justify-center border-gray-200 rounded-xl shadow-md p-8 w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto mt-10"
@@ -89,7 +96,9 @@ export default function FormClaro({ formRef, planoMovel, planoFibra }) {
           minLength={6}
           value={nome}
           onChange={handleNomeChange}
-          className={`w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#f00000] ${nomeErro ? "border-red-500" : ""}`}
+          className={`w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#f00000] ${
+            nomeErro ? "border-red-500" : ""
+          }`}
           required
         />
         {nomeErro && <div className="text-xs text-red-500">{nomeErro}</div>}
@@ -177,6 +186,20 @@ export default function FormClaro({ formRef, planoMovel, planoFibra }) {
             <span className="ml-2">Não</span>
           </label>
         </div>
+      </div>
+
+      {/* Campo de modelos de celulares */}
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-1">
+          Smartphones de interesse:
+        </label>
+        <textarea
+          value={modelosCelulares}
+          readOnly
+          rows={modelosCelulares.split("\n").length || 1}
+          className="w-full border rounded px-3 py-2 bg-gray-100 resize-none"
+          placeholder="Selecione até 3 modelos (Apple, Samsung, Motorola)"
+        />
       </div>
       <button
         type="submit"

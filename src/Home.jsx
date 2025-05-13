@@ -12,6 +12,11 @@ export default function Home() {
   // Estados de seleção por seção
   const [cardMovelSelecionado, setCardMovelSelecionado] = useState(null);
   const [cardFibraSelecionado, setCardFibraSelecionado] = useState(null);
+  const [smartphonesSelecionados, setSmartphonesSelecionados] = useState({
+    apple: null,
+    samsung: null,
+    motorola: null,
+  });
   // Função para scroll suave
   const scrollToSection = (sectionId) => {
     const el = document.getElementById(sectionId);
@@ -26,6 +31,13 @@ export default function Home() {
     if (formRef.current) {
       formRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
+  };
+
+  const handleSelecionarSmartphone = (marca, modelo) => {
+    setSmartphonesSelecionados((prev) => ({
+      ...prev,
+      [marca]: modelo,
+    }));
   };
 
   return (
@@ -64,7 +76,10 @@ export default function Home() {
         </div>
         {/* AGORA DENTRO DO MESMO CONTAINER */}
         <div id="smartphones" className="scroll-mt-20">
-          <SectionSmartphones />
+          <SectionSmartphones
+            smartphonesSelecionados={smartphonesSelecionados}
+            onSelecionarSmartphone={handleSelecionarSmartphone}
+          />
         </div>
       </div>
 
@@ -73,6 +88,7 @@ export default function Home() {
         formRef={formRef}
         planoMovel={cardMovelSelecionado ? cardMovelSelecionado.plano : null}
         planoFibra={cardFibraSelecionado ? cardFibraSelecionado.plano : null}
+        smartphonesSelecionados={smartphonesSelecionados}
       />
 
       {/* Aba vertical fixa para o formulário */}

@@ -1,17 +1,13 @@
-// MotorolaPhones.jsx
-import React, { useState } from "react";
+import React from "react";
 import motorolalogo from "../assets/motorolalogo.png";
 import MotorolaCard1 from "./MotorolaCard1";
 import MotorolaCard2 from "./MotorolaCard2";
 import MotorolaCard3 from "./MotorolaCard3";
+import { motorolaCellphones } from "../data/products.js";
 
-export default function MotorolaPhones() {
-  const [selected, setSelected] = useState(null); // null, 0, 1, 2
+const cardComponents = [MotorolaCard1, MotorolaCard2, MotorolaCard3];
 
-  const handleCardClick = (idx) => {
-    setSelected(selected === idx ? null : idx);
-  };
-
+export default function MotorolaPhones({ selected, onSelect }) {
   return (
     <div className="w-full flex flex-col gap-4 mb-8 mt-30">
       {/* Logo centralizada acima dos cards */}
@@ -22,18 +18,16 @@ export default function MotorolaPhones() {
         draggable={false}
       />
       <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-stretch font-sans">
-        <MotorolaCard1
-          selected={selected === 0}
-          onClick={() => handleCardClick(0)}
-        />
-        <MotorolaCard2
-          selected={selected === 1}
-          onClick={() => handleCardClick(1)}
-        />
-        <MotorolaCard3
-          selected={selected === 2}
-          onClick={() => handleCardClick(2)}
-        />
+        {motorolaCellphones.map((cel, idx) => {
+          const CardComponent = cardComponents[idx];
+          return (
+            <CardComponent
+              key={cel.nome}
+              selected={selected === cel.nome}
+              onClick={() => onSelect(idx)}
+            />
+          );
+        })}
       </div>
     </div>
   );

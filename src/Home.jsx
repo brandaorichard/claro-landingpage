@@ -7,6 +7,8 @@ import Header from "./components/Header";
 import FormClaro from "./components/FormClaro";
 import FormVerticalTab from "./components/FormVerticalTab";
 import SectionSmartphones from "./components/SectionSmartphone";
+import Footer from "./components/Footer";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Home() {
   // Estados de seleção por seção
@@ -41,17 +43,17 @@ export default function Home() {
   };
 
   const limparSmartphonesSelecionados = () => {
-  setSmartphonesSelecionados({
-    apple: null,
-    samsung: null,
-    motorola: null,
-  });
-};
+    setSmartphonesSelecionados({
+      apple: null,
+      samsung: null,
+      motorola: null,
+    });
+  };
 
-const limparPlanosSelecionados = () => {
-  setCardMovelSelecionado(null);
-  setCardFibraSelecionado(null);
-};
+  const limparPlanosSelecionados = () => {
+    setCardMovelSelecionado(null);
+    setCardFibraSelecionado(null);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-gray-100 to-white pt-15 font-sans">
@@ -60,10 +62,18 @@ const limparPlanosSelecionados = () => {
       <div className="text-black py-10 px-4 max-w-6xl mx-auto">
         <h3
           className="text-black font-black uppercase tracking-tight text-2xl md:text-3xl mb-15 text-left"
-          style={{ lineHeight: 1, letterSpacing: "-2px" }}
+          style={{ lineHeight: 1, letterSpacing: "-1px" }}
         >
           Selecione seus serviços Claro para somar descontos em smartphones.
         </h3>
+
+        {/* Bloco de localização */}
+        <div className="flex items-center gap-2 mb-10">
+          <FaMapMarkerAlt size={20} className="text-[#f00000]" />
+          <span className="text-base font-semibold text-[#000000]">
+            Ofertas disponíveis para: Claro Paranaíba (Tres Lagoas - MS)
+          </span>
+        </div>
 
         <span className="text-base font-medium text-[#f00000]">
           Combine serviços Claro e ganhe mais desconto no seu smartphone:{" "}
@@ -108,6 +118,9 @@ const limparPlanosSelecionados = () => {
 
       {/* Aba vertical fixa para o formulário */}
       <FormVerticalTab onClick={scrollToForm} />
+
+      {/* Rodapé */}
+      <Footer />
     </div>
   );
 }

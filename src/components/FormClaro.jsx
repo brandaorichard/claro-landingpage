@@ -13,6 +13,7 @@ export default function FormClaro({
   planoFibra,
   smartphonesSelecionados,
   limparSmartphonesSelecionados,
+  limparPlanosSelecionados,
 }) {
   // Estados controlados
   const [nome, setNome] = useState("");
@@ -126,6 +127,7 @@ export default function FormClaro({
       setCpfErro("");
       setTelErro("");
       if (limparSmartphonesSelecionados) limparSmartphonesSelecionados();
+      if (limparPlanosSelecionados) limparPlanosSelecionados();
     } catch (err) {
       toast.error("Erro ao enviar.");
     }

@@ -48,6 +48,11 @@ export default function Home() {
   });
 };
 
+const limparPlanosSelecionados = () => {
+  setCardMovelSelecionado(null);
+  setCardFibraSelecionado(null);
+};
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-gray-100 to-white pt-15 font-sans">
       <Header onSectionClick={scrollToSection} />
@@ -98,6 +103,7 @@ export default function Home() {
         planoFibra={cardFibraSelecionado ? cardFibraSelecionado.plano : null}
         smartphonesSelecionados={smartphonesSelecionados}
         limparSmartphonesSelecionados={limparSmartphonesSelecionados}
+        limparPlanosSelecionados={limparPlanosSelecionados}
       />
 
       {/* Aba vertical fixa para o formulário */}

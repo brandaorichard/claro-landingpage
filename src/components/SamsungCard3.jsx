@@ -41,7 +41,7 @@ export default function SamsungCard3({ selected, onClick }) {
       {/* Container do botão */}
       <div className="flex-shrink-0">
         <button
-          className="w-30 py-3 rounded-full bg-[#ffd500d2] text-[#222] font-bold text-lg shadow hover:bg-yellow-400 transition mb-2"
+          className="w-30 py-3 rounded-full bg-[#ffd500d2] text-[#222] font-bold text-lg shadow hover:bg-yellow-400 transition mb-2 cursor-pointer"
           style={{ maxWidth: 150 }}
         >
           Eu quero

@@ -49,16 +49,18 @@ export default function SectionSmartphones({
 
   // Handler para seleção de smartphone
   const handleSelect = (marca, idx) => {
-    const modelo =
-      marca === "apple"
-        ? appleCellphones[idx].nome
-        : marca === "samsung"
-        ? samsungCellphones[idx].nome
-        : marca === "motorola"
-        ? motorolaCellphones[idx].nome
-        : null;
-
-    // Chame apenas o handler do Home
+    // Se idx for null, desmarque
+    let modelo = null;
+    if (idx !== null) {
+      modelo =
+        marca === "apple"
+          ? appleCellphones[idx].nome
+          : marca === "samsung"
+          ? samsungCellphones[idx].nome
+          : marca === "motorola"
+          ? motorolaCellphones[idx].nome
+          : null;
+    }
     if (onSelecionarSmartphone) {
       onSelecionarSmartphone(marca, modelo);
     }
@@ -185,15 +187,39 @@ export default function SectionSmartphones({
 
         <ApplePhones
           selected={smartphonesSelecionados.apple}
-          onSelect={(idx) => handleSelect("apple", idx)}
+          onSelect={(idx) => {
+            // Se já está selecionado, desmarque
+            if (smartphonesSelecionados.apple === appleCellphones[idx]?.nome) {
+              handleSelect("apple", null);
+            } else {
+              handleSelect("apple", idx);
+            }
+          }}
         />
         <SamsungPhones
           selected={smartphonesSelecionados.samsung}
-          onSelect={(idx) => handleSelect("samsung", idx)}
+          onSelect={(idx) => {
+            // Se já está selecionado, desmarque
+            if (
+              smartphonesSelecionados.samsung === samsungCellphones[idx]?.nome
+            ) {
+              handleSelect("samsung", null);
+            } else {
+              handleSelect("samsung", idx);
+            }
+          }}
         />
         <MotorolaPhones
           selected={smartphonesSelecionados.motorola}
-          onSelect={(idx) => handleSelect("motorola", idx)}
+          onSelect={(idx) => {
+            if (
+              smartphonesSelecionados.motorola === motorolaCellphones[idx]?.nome
+            ) {
+              handleSelect("motorola", null);
+            } else {
+              handleSelect("motorola", idx);
+            }
+          }}
         />
       </div>
     </section>

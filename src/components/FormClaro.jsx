@@ -43,7 +43,9 @@ export default function FormClaro({
   const handleNomeChange = (e) => {
     const value = e.target.value;
     setNome(value);
-    setNomeErro(value.length > 0 && value.length < 6 ? "Mínimo 6 caracteres" : "");
+    setNomeErro(
+      value.length > 0 && value.length < 6 ? "Mínimo 6 caracteres" : ""
+    );
   };
 
   // Apenas números, mínimo 6 dígitos
@@ -71,7 +73,7 @@ export default function FormClaro({
     formData.append("entry.2138925042", data.possuiTV || "");
     formData.append("entry.1545885356", data.modelosCelulares || "");
     formData.append("entry.361377747", data.planoMovel || "");
-    formData.append("entry.1664288804", data.planoFibra || ""); 
+    formData.append("entry.1664288804", data.planoFibra || "");
 
     console.log("Payload enviado:", formData.toString());
 
@@ -108,10 +110,14 @@ export default function FormClaro({
       possuiTV,
       modelosCelulares,
       planoMovel: planoMovel
-        ? `${planoMovel.nome || planoMovel.titulo || ""} ${planoMovel.total || ""} ${planoMovel.detalhes ? planoMovel.detalhes.join(" ") : ""}`
+        ? `${planoMovel.nome || planoMovel.titulo || ""} ${
+            planoMovel.total || ""
+          } ${planoMovel.detalhes ? planoMovel.detalhes.join(" ") : ""}`
         : "",
       planoFibra: planoFibra
-        ? `${planoFibra.nome || planoFibra.titulo || ""} ${planoFibra.total || ""} ${planoFibra.detalhes ? planoFibra.detalhes.join(" ") : ""}`
+        ? `${planoFibra.nome || planoFibra.titulo || ""} ${
+            planoFibra.total || ""
+          } ${planoFibra.detalhes ? planoFibra.detalhes.join(" ") : ""}`
         : "",
     };
 
@@ -205,11 +211,7 @@ export default function FormClaro({
           <label className="block text-sm font-medium mb-1">Plano móvel:</label>
           <input
             type="text"
-            value={
-              planoMovel
-                ? planoMovel.nome || planoMovel.titulo || ""
-                : ""
-            }
+            value={planoMovel ? planoMovel.nome || planoMovel.titulo || "" : ""}
             readOnly
             className="w-full border rounded px-3 py-2 bg-gray-100"
           />
@@ -225,11 +227,7 @@ export default function FormClaro({
           <label className="block text-sm font-medium mb-1">Plano fibra:</label>
           <input
             type="text"
-            value={
-              planoFibra
-                ? planoFibra.nome || planoFibra.titulo || ""
-                : ""
-            }
+            value={planoFibra ? planoFibra.nome || planoFibra.titulo || "" : ""}
             readOnly
             className="w-full border rounded px-3 py-2 bg-gray-100"
           />
@@ -281,11 +279,13 @@ export default function FormClaro({
             Smartphones de interesse:
           </label>
           <textarea
+            name="modelosCelulares"
             value={modelosCelulares}
             onChange={(e) => setModelosCelulares(e.target.value)}
             rows={3}
             className="w-full border rounded px-3 py-2 bg-gray-100 resize-none"
             placeholder="Selecione até 3 modelos (Apple, Samsung, Motorola)"
+            readOnly
           />
         </div>
 

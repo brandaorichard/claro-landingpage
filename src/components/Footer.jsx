@@ -12,8 +12,8 @@ export default function Footer() {
         {/* Informações alinhadas abaixo da logo */}
         <div className="flex flex-col gap-1 pl-1">
           <p className="text-base font-semibold">
-            Nome do vendedor:{" "}
-            <span className="font-normal">consultor Thiago Jr.</span>
+            Nome do consultor:{" "}
+            <span className="font-normal"> Thiago Jr.</span>
           </p>
           <p className="text-base font-semibold">
             Endereço da loja:{" "}

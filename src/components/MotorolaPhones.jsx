@@ -24,7 +24,14 @@ export default function MotorolaPhones({ selected, onSelect }) {
             <CardComponent
               key={cel.nome}
               selected={selected === cel.nome}
-              onClick={() => onSelect(idx)}
+              onClick={() => {
+                // Se já está selecionado, desmarca (passa null)
+                if (selected === cel.nome) {
+                  onSelect(null);
+                } else {
+                  onSelect(idx);
+                }
+              }}
             />
           );
         })}

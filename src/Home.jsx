@@ -1,9 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import SectionMobile from "./components/SectionMobile";
 import SectionFibra from "./components/SectionFibra";
 import SectionTVPlus from "./components/SectionTVPlus";
-import DescontoBadge from "./components/DescontoBadge";
 import Header from "./components/Header";
 import FormClaro from "./components/FormClaro";
 import FormVerticalTab from "./components/FormVerticalTab";
@@ -20,30 +19,6 @@ export default function Home() {
   const desconto =
     (cardMovelSelecionado ? 5 : 0) + (cardFibraSelecionado ? 5 : 0);
   // + (cardTVSelecionado ? 5 : 0);
-
-  // Animação do círculo
-  const controls = useAnimation();
-  useEffect(() => {
-    controls.start({
-      scale: [1, 1.2, 1],
-      transition: { duration: 0.4, times: [0, 0.5, 1] },
-    });
-  }, [desconto]);
-
-  // Sticky badge logic
-  const badgeRef = useRef();
-  const [showFloating, setShowFloating] = useState(false);
-
-  useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        setShowFloating(!entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-    if (badgeRef.current) observer.observe(badgeRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   // Função para scroll suave
   const scrollToSection = (sectionId) => {
@@ -73,21 +48,13 @@ export default function Home() {
           Selecione seus serviços Claro para somar descontos em smartphones.
         </h3>
 
-        {/* Círculo de desconto original (visível no topo) */}
-        <div ref={badgeRef} className="flex items-center gap-3 mb-10">
-          <motion.div
-            animate={controls}
-            className="bg-[#f00000] text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl font-black shadow transition-all duration-300"
-          >
-            {desconto}%
-          </motion.div>
-          <span className="text-base font-medium text-[#f00000]">
-            Seu desconto acumulado
+        <span className="text-base font-medium text-[#f00000]">
+            Combine serviços Claro e ganhe mais desconto no seu smartphone: <br></br>
+            quanto mais serviços, maior o desconto.
           </span>
-        </div>
 
         {/* Seções com id para scroll */}
-        <div id="claro-movel" className="scroll-mt-20">
+        <div id="claro-movel" className="scroll-mt-20 mt-15">
           <SectionMobile
             cardSelecionado={cardMovelSelecionado}
             onSelecionarCard={setCardMovelSelecionado}
@@ -116,11 +83,6 @@ export default function Home() {
 
       {/* Aba vertical fixa para o formulário */}
       <FormVerticalTab onClick={scrollToForm} />
-
-      {/* Círculo de desconto flutuante (fixo) */}
-      {showFloating && (
-        <DescontoBadge desconto={desconto} controls={controls} />
-      )}
     </div>
   );
 }

@@ -40,6 +40,14 @@ export default function Home() {
     }));
   };
 
+  const limparSmartphonesSelecionados = () => {
+  setSmartphonesSelecionados({
+    apple: null,
+    samsung: null,
+    motorola: null,
+  });
+};
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-gray-100 to-white pt-15 font-sans">
       <Header onSectionClick={scrollToSection} />
@@ -89,6 +97,7 @@ export default function Home() {
         planoMovel={cardMovelSelecionado ? cardMovelSelecionado.plano : null}
         planoFibra={cardFibraSelecionado ? cardFibraSelecionado.plano : null}
         smartphonesSelecionados={smartphonesSelecionados}
+        limparSmartphonesSelecionados={limparSmartphonesSelecionados}
       />
 
       {/* Aba vertical fixa para o formulário */}

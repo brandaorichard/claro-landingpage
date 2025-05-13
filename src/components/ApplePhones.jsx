@@ -12,7 +12,7 @@ export default function ApplePhones() {
   };
 
   return (
-    <div className="w-full flex flex-col gap-4 mb-8 mt-30">
+    <div className="w-full flex flex-col gap-4 mb-8 mt-15">
       <img
         src={applelogo}
         alt="Apple"

@@ -26,14 +26,14 @@ export default function SamsungCard3({ selected, onClick }) {
         <img
           src={samsungS24}
           alt="Logo iPhone 16"
-          className="w-auto h-10 object-contain mb-2 mx-auto"
+          className="w-auto h-6 object-contain mt-6 mx-auto"
           style={{ filter: "brightness(0) invert(1)" }}
           draggable={false}
         />
         <img
           src={samsungLogo}
           alt="Logo Samsung"
-          className="w-56 h-auto object-contain mx-auto"
+          className="w-40 h-auto object-contain mx-auto mt-2"
           style={{ filter: "brightness(0) invert(1)" }}
           draggable={false}
         />

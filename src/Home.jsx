@@ -12,14 +12,6 @@ export default function Home() {
   // Estados de seleção por seção
   const [cardMovelSelecionado, setCardMovelSelecionado] = useState(null);
   const [cardFibraSelecionado, setCardFibraSelecionado] = useState(null);
-  // Se quiser TV+, descomente:
-  // const [cardTVSelecionado, setCardTVSelecionado] = useState(null);
-
-  // Desconto acumulado
-  const desconto =
-    (cardMovelSelecionado ? 5 : 0) + (cardFibraSelecionado ? 5 : 0);
-  // + (cardTVSelecionado ? 5 : 0);
-
   // Função para scroll suave
   const scrollToSection = (sectionId) => {
     const el = document.getElementById(sectionId);
@@ -49,9 +41,10 @@ export default function Home() {
         </h3>
 
         <span className="text-base font-medium text-[#f00000]">
-            Combine serviços Claro e ganhe mais desconto no seu smartphone: <br></br>
-            quanto mais serviços, maior o desconto.
-          </span>
+          Combine serviços Claro e ganhe mais desconto no seu smartphone:{" "}
+          <br></br>
+          quanto mais serviços, maior o desconto.
+        </span>
 
         {/* Seções com id para scroll */}
         <div id="claro-movel" className="scroll-mt-20 mt-15">
@@ -67,10 +60,7 @@ export default function Home() {
           />
         </div>
         <div id="claro-tvplus" className="scroll-mt-20">
-          <SectionTVPlus
-          // cardSelecionado={cardTVSelecionado}
-          // onSelecionarCard={setCardTVSelecionado}
-          />
+          <SectionTVPlus />
         </div>
         {/* AGORA DENTRO DO MESMO CONTAINER */}
         <div id="smartphones" className="scroll-mt-20">
@@ -79,7 +69,11 @@ export default function Home() {
       </div>
 
       {/* Formulário abaixo da seção TV */}
-      <FormClaro formRef={formRef} />
+      <FormClaro
+        formRef={formRef}
+        planoMovel={cardMovelSelecionado ? cardMovelSelecionado.plano : null}
+        planoFibra={cardFibraSelecionado ? cardFibraSelecionado.plano : null}
+      />
 
       {/* Aba vertical fixa para o formulário */}
       <FormVerticalTab onClick={scrollToForm} />

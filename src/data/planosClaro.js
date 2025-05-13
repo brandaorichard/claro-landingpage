@@ -126,24 +126,24 @@ export const planos = [{
 ];
 
 export const planosPos = [
-  {
-    nome: "Pós Convergência",
-    total: "50 GB",
-    detalhes: ["Single Total: N/A"],
-    preco: "R$59,90/mês",
-    beneficios: [
-      { icon: FaInstagram, color: "#E1306C", label: "Instagram" },
-      { icon: FaFacebook, color: "#1877F3", label: "Facebook" },
-      { icon: FaXTwitter, color: "#000", label: "Twitter" },
-      { icon: FaTiktok, color: "#000", label: "TikTok" },
-      { icon: FaYoutube, color: "#FF0000", label: "YouTube" },
-      { img: globoplayLogo, label: "GloboPlay" },
-      { img: netflixLogo, label: "Netflix", color: "#E50914" },
-      { img: maxLogo, label: "max" },
-      { img: disneyLogo, label: "disney" },
-      { text: "+ 10GB" }
-    ]
-  },
+  // {
+  //   nome: "Pós Convergência",
+  //   total: "50 GB",
+  //   detalhes: ["Single Total: N/A"],
+  //   preco: "R$59,90/mês",
+  //   beneficios: [
+  //     { icon: FaInstagram, color: "#E1306C", label: "Instagram" },
+  //     { icon: FaFacebook, color: "#1877F3", label: "Facebook" },
+  //     { icon: FaXTwitter, color: "#000", label: "Twitter" },
+  //     { icon: FaTiktok, color: "#000", label: "TikTok" },
+  //     { icon: FaYoutube, color: "#FF0000", label: "YouTube" },
+  //     { img: globoplayLogo, label: "GloboPlay" },
+  //     { img: netflixLogo, label: "Netflix", color: "#E50914" },
+  //     { img: maxLogo, label: "max" },
+  //     { img: disneyLogo, label: "disney" },
+  //     { text: "+ 10GB" }
+  //   ]
+  // },
   {
     nome: "Pós 25GB",
     total: "100 GB",

@@ -23,8 +23,14 @@ export default function SectionMobile({ cardSelecionado, onSelecionarCard }) {
             <PlanoCard
               plano={plano}
               key={id}
-              selecionado={cardSelecionado === id}
-              onClick={() => onSelecionarCard(cardSelecionado === id ? null : id)}
+              selecionado={cardSelecionado && cardSelecionado.id === id}
+              onClick={() =>
+                onSelecionarCard(
+                  cardSelecionado && cardSelecionado.id === id
+                    ? null
+                    : { id, plano }
+                )
+              }
             />
           );
         })}
@@ -37,8 +43,14 @@ export default function SectionMobile({ cardSelecionado, onSelecionarCard }) {
             <PlanoCard
               plano={plano}
               key={id}
-              selecionado={cardSelecionado === id}
-              onClick={() => onSelecionarCard(cardSelecionado === id ? null : id)}
+              selecionado={cardSelecionado && cardSelecionado.id === id}
+              onClick={() =>
+                onSelecionarCard(
+                  cardSelecionado && cardSelecionado.id === id
+                    ? null
+                    : { id, plano }
+                )
+              }
             />
           );
         })}

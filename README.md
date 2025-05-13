@@ -23,10 +23,11 @@ Landing page interativa para ofertas Claro, desenvolvida em ReactJS, com seleç�
 ## 📦 Instalação
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repo-claro-ofertas.git
-cd seu-repo-claro-ofertas
+(https) git clone https://git@github.com:brandaorichard/claro-landingpage.git
+(ssh) git clone git@github.com:brandaorichard/claro-landingpage.git
+cd claro-landingpage
 npm install
-npm start
+npm run dev
 ```
 
 ## 📝 Como usar

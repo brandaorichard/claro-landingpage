@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import claroLogo from "../assets/claro.svg";
-import { FiPhone } from "react-icons/fi";
-import { FaWhatsapp } from "react-icons/fa";
+// import { FiPhone } from "react-icons/fi";
+// import { FaWhatsapp } from "react-icons/fa";
 
 const sections = [
   { label: "Para seu celular", id: "claro-movel" },
@@ -9,7 +9,7 @@ const sections = [
   { label: "Smartphones", id: "smartphones" },
 ];
 
-export default function Header({ onSectionClick }) {
+export default function Header({ onSectionClick, onContrateClick }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -75,7 +75,7 @@ export default function Header({ onSectionClick }) {
 
         {/* Botões miniatura + Contrate */}
         <div className="flex flex-shrink-0 items-center gap-2 ml-auto">
-          <button
+          {/* <button
             className="bg-white text-[#C10000] rounded-full p-2 shadow hover:bg-gray-100 transition-colors duration-150"
             style={{ fontSize: 18 }}
             aria-label="Ligar"
@@ -90,8 +90,11 @@ export default function Header({ onSectionClick }) {
             type="button"
           >
             <FaWhatsapp />
-          </button>
-          <button className="bg-[#ffd900] text-[#000000] font-sans px-6 py-2 rounded-full text-sm shadow">
+          </button> */}
+          <button
+            onClick={onContrateClick}
+            className="bg-[#ffd900] text-[#000000] font-sans px-6 py-2 rounded-full text-sm shadow cursor-pointer"
+          >
             Contrate
           </button>
         </div>

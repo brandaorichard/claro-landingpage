@@ -57,7 +57,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-gray-100 to-white pt-15 font-sans">
-      <Header onSectionClick={scrollToSection} />
+      <Header onSectionClick={scrollToSection} onContrateClick={scrollToForm} />
 
       <div className="text-black py-10 px-4 max-w-6xl mx-auto">
         <h3

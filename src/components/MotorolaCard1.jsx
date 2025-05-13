@@ -1,10 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import samsungclaro from "../assets/a36art.png";
-import samsungA36 from "../assets/a36description.png";
-import samsungLogo from "../assets/a36letter.png";
+import motorolaclaro from "../assets/motog35.png";
+import motorolag35 from "../assets/motog35title.png";
 
-export default function SamsungCard2({ selected, onClick }) {
+export default function MotorolaCard1({ selected, onClick }) {
   return (
     <motion.div
       className={`bg-gradient-to-b from-[#A80000] to-[#3B1812] rounded-2xl shadow-lg w-[65%] h-120 mx-auto flex flex-col justify-between items-center p-6 overflow-hidden cursor-pointer transition-all duration-200
@@ -15,28 +14,28 @@ export default function SamsungCard2({ selected, onClick }) {
       {/* Container da imagem */}
       <div className="h-[250px] w-[300px] flex items-center justify-center">
         <img
-          src={samsungclaro}
+          src={motorolaclaro}
           alt="Samsung Claro"
-          className="h-full w-full object-contain"
+          className="h-84 w-49 object-contain"
           draggable={false}
         />
       </div>
       {/* Container da logo e texto */}
       <div className="flex flex-col items-center flex-shrink-0">
         <img
-          src={samsungA36}
+          src={motorolag35}
           alt="Logo iPhone 16"
-          className="w-auto h-13 object-contain mb-2 mx-auto"
+          className="w-auto h-15 object-contain mb-2 mx-auto"
           style={{ filter: "brightness(0) invert(1)" }}
           draggable={false}
         />
-        <img
+        {/* <img
           src={samsungLogo}
           alt="Logo Samsung"
-          className="w-30 h-auto object-contain mx-auto"
+          className="w-56 h-auto object-contain mx-auto"
           style={{ filter: "brightness(0) invert(1)" }}
           draggable={false}
-        />
+        /> */}
       </div>
       {/* Container do botão */}
       <div className="flex-shrink-0">
